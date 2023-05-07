@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.登入系統ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.maintainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -38,18 +38,18 @@
 			this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
 			this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.登入系統ToolStripMenuItem});
+            this.maintainToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(800, 32);
+			this.menuStrip1.Size = new System.Drawing.Size(800, 31);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
-			// 登入系統ToolStripMenuItem
+			// maintainToolStripMenuItem
 			// 
-			this.登入系統ToolStripMenuItem.Name = "登入系統ToolStripMenuItem";
-			this.登入系統ToolStripMenuItem.Size = new System.Drawing.Size(98, 28);
-			this.登入系統ToolStripMenuItem.Text = "登入系統";
+			this.maintainToolStripMenuItem.Name = "maintainToolStripMenuItem";
+			this.maintainToolStripMenuItem.Size = new System.Drawing.Size(153, 27);
+			this.maintainToolStripMenuItem.Text = "Maintain Users";
 			// 
 			// FormMain
 			// 
@@ -70,6 +70,6 @@
 		#endregion
 
 		private System.Windows.Forms.MenuStrip menuStrip1;
-		private System.Windows.Forms.ToolStripMenuItem 登入系統ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem maintainToolStripMenuItem;
 	}
 }
