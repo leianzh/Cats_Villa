@@ -2,7 +2,7 @@
   Id int not null PRIMARY KEY IDENTITY(1,1),
   UserName NVARCHAR(100) not null,
   CatName NVARCHAR(100) not null,
-  CatAge int not null,
+  CatBirth DATETIME not null,
   CatGender NVARCHAR(100) not null,
   CatBreed NVARCHAR(100) not null,
   Account VARCHAR(100) not null,
@@ -13,8 +13,9 @@
 CREATE TABLE Rooms (
   Id int not null PRIMARY KEY IDENTITY(1,1),
   Price int not null,
-  Description NVARCHAR(100),
-  RoomsImages NVARCHAR(100) not null
+  Title NVARCHAR(50),
+  Description NVARCHAR(3000),
+  RoomsImage NVARCHAR(100) not null
 );
 
 CREATE TABLE Orders (
@@ -23,38 +24,20 @@ CREATE TABLE Orders (
   RoomId int not null,
   CheckInDate DATETIME not null,
   CheckOutDate DATETIME not null,
-  StayDuration DATETIME not null,
-  OrderCreatDate DATETIME not null,
-  OrderStatus NVARCHAR(100),
-  PayerName NVARCHAR(100) not null,
-  PayerPrice int not null,
-  PayerAccount VARCHAR(100) not null,
-  PaymentTime DATETIME not null,
+  StayDuration INT not null,
+  OrderCreat_at DATETIME not null,
+  Price int not null,
   foreign key (UserId) REFERENCES Users(id),
   foreign key (RoomId) REFERENCES Rooms(id)
 );
-SET IDENTITY_INSERT [dbo]. Users on
-INSERT INTO Users (id,UserName, CatName,CatAge,CatGender,CatBreed,Account,Password,Phone) 
-VALUES 
-  (1,'Leian', '蚵仔',3,'female','mix','Leian666','LL123','0988699060'),
-  (2,'璇璇', '喵喵',2,'female','mix','yang888','mamamoo','0912345678'),
-  (3,'蓁蓁', 'Sun',5,'male','persian','joy777','jj67890','0955443226'),
-  (4,'平平', '安安',7,'female','russian blue','happy99','abc123','0934637802'),
-  (5,'Hank', '12',7,'male','mix','HHANK12','xnr234','0933675803');
-  SELECT * FROM Users
-  INSERT INTO Users (id,UserName, CatName,CatAge,CatGender,CatBreed,Account,Password,Phone) 
-VALUES 
- (6,'理恩', 'uhah',3,'female','mix','Leian0','ux500','0956321890');
 
-select ConfirmPassword from Users ;
 
 UPDATE users
-SET Password = 'LNN12345'
-WHERE username = 'Leian';
+SET CatBirth = '2023-03-29'
+WHERE username = '理恩';
 
- UPDATE users
-SET ConfirmPassword = 'LNN12345'
-WHERE username = 'Leian';
+
+SELECT * FROM Users
 
 
 

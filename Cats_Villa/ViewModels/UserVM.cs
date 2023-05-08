@@ -24,10 +24,9 @@ namespace Cats_Villa.ViewModels
 		[Required(ErrorMessage = "貓咪名字必填")]
 		public string CatName { get; set; }
 
-		[Display(Name = "貓咪年齡")]
-		[Required(ErrorMessage = "{0}貓咪年齡必填")]
-		[Range(1, 25, ErrorMessage = "{0}必須介於1~25之間")]
-		public int CatAge { get; set; }
+		[Display(Name = "貓咪生日")]
+		[Required(ErrorMessage = "{0}貓咪生日必填")]
+		public DateTime CatBirth { get; set; }
 
 		[Display(Name = "貓咪性別")]
 		[Required(ErrorMessage = "貓咪性別必填")]
@@ -46,11 +45,6 @@ namespace Cats_Villa.ViewModels
 		[Required(ErrorMessage = "密碼必填")]
 		[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Za-z\d])[\w]{8,}$", ErrorMessage = "密碼必須包含英文和數字，且英文和數字同時都要有，長度至少為8個字元")]
 		public string Password { get; set; }
-
-		[Display(Name = "再次輸入密碼")]
-		[Required(ErrorMessage = "請再次輸入密碼")]
-		[Compare("Password", ErrorMessage = "兩次輸入的密碼不一致")]
-		public string ConfirmPassword { get; set; }
 
 		[Display(Name = "電話號碼")]
 		[Range(1, 10, ErrorMessage = "{0}必須介於1~10之間")]
@@ -67,12 +61,11 @@ namespace Cats_Villa.ViewModels
 				Id = dto.Id,
 				UserName = dto.UserName,
 				CatName = dto.CatName,
-				CatAge = dto.CatAge,
+				CatBirth = dto.CatBirth,
 				CatGender = dto.CatGender,
 				CatBreed = dto.CatBreed,
 				Account = dto.Account,
 				Password = dto.Password,
-				ConfirmPassword = dto.ConfirmPassword,
 				Phone = dto.Phone,
 			};
 		}
@@ -87,10 +80,9 @@ namespace Cats_Villa.ViewModels
 		[Required(ErrorMessage = "貓咪名字必填")]
 		public string CatName { get; set; }
 
-		[Display(Name = "貓咪年齡")]
-		[Required(ErrorMessage = "{0}貓咪年齡必填")]
-		[Range(1, 25, ErrorMessage = "{0}必須介於1~25之間")]
-		public int CatAge { get; set; }
+		[Display(Name = "貓咪生日")]
+		[Required(ErrorMessage = "{0}貓咪生日必填")]
+		public DateTime CatBirth { get; set; }
 
 		[Display(Name = "貓咪性別")]
 		[Required(ErrorMessage = "貓咪性別必填")]
@@ -110,11 +102,6 @@ namespace Cats_Villa.ViewModels
 		[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Za-z\d])[\w]{8,}$", ErrorMessage = "密碼必須包含英文和數字，且英文和數字同時都要有，長度至少為8個字元")]
 		public string Password { get; set; }
 
-		[Display(Name = "再次輸入密碼")]
-		[Required(ErrorMessage = "請再次輸入密碼")]
-		[Compare("Password", ErrorMessage = "兩次輸入的密碼不一致")]
-		public string ConfirmPassword { get; set; }
-
 		[Display(Name = "電話號碼")]
 		[Range(1, 10, ErrorMessage = "{0}必須介於1~10之間")]
 		[MaxLength(10, ErrorMessage = "{0}長度不可大於10")]
@@ -128,12 +115,11 @@ namespace Cats_Villa.ViewModels
 			{
 				UserName = vm.UserName,
 				CatName = vm.CatName,
-				CatAge = vm.CatAge,
+				CatBirth = vm.CatBirth,
 				CatGender = vm.CatGender,
 				CatBreed = vm.CatBreed,
 				Account = vm.Account,
 				Password = vm.Password,
-				ConfirmPassword = vm.ConfirmPassword,
 				Phone = vm.Phone,
 
 
@@ -152,10 +138,9 @@ namespace Cats_Villa.ViewModels
 		[Required(ErrorMessage = "貓咪名字必填")]
 		public string CatName { get; set; }
 
-		[Display(Name = "貓咪年齡")]
-		[Required(ErrorMessage = "{0}貓咪年齡必填")]
-		[Range(1, 25, ErrorMessage = "{0}必須介於1~25之間")]
-		public int CatAge { get; set; }
+		[Display(Name = "貓咪生日")]
+		[Required(ErrorMessage = "{0}貓咪生日必填")]
+		public DateTime CatBirth { get; set; }
 
 		[Display(Name = "貓咪性別")]
 		[Required(ErrorMessage = "貓咪性別必填")]
@@ -175,11 +160,6 @@ namespace Cats_Villa.ViewModels
 		[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Za-z\d])[\w]{8,}$", ErrorMessage = "密碼必須包含英文和數字，且英文和數字同時都要有，長度至少為8個字元")]
 		public string Password { get; set; }
 
-		[Display(Name = "再次輸入密碼")]
-		[Required(ErrorMessage = "請再次輸入密碼")]
-		[Compare("Password", ErrorMessage = "兩次輸入的密碼不一致")]
-		public string ConfirmPassword { get; set; }
-
 		[Display(Name = "電話號碼")]
 		[Range(1, 10, ErrorMessage = "{0}必須介於1~10之間")]
 		[MaxLength(10, ErrorMessage = "{0}長度不可大於10")]
@@ -195,12 +175,11 @@ namespace Cats_Villa.ViewModels
 				Id = vm.Id,
 				UserName = vm.UserName,
 				CatName = vm.CatName,
-				CatAge = vm.CatAge,
+				CatBirth = vm.CatBirth,
 				CatGender = vm.CatGender,
 				CatBreed = vm.CatBreed,
 				Account = vm.Account,
 				Password = vm.Password,
-				ConfirmPassword = vm.ConfirmPassword,
 				Phone = vm.Phone,
 			};
 		}
@@ -211,12 +190,11 @@ namespace Cats_Villa.ViewModels
 				Id = dto.Id,
 				UserName = dto.UserName,
 				CatName = dto.CatName,
-				CatAge = dto.CatAge,
+				CatBirth = dto.CatBirth,
 				CatGender = dto.CatGender,
 				CatBreed = dto.CatBreed,
 				Account = dto.Account,
 				Password = dto.Password,
-				ConfirmPassword = dto.ConfirmPassword,
 				Phone = dto.Phone,
 			};
 		}
