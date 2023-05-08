@@ -52,6 +52,17 @@ namespace Cats_Villa.SqlDataLayer
 			return this;
 		}
 
+		public SqlParameterBuilder Addvarchar(string name, int length, string value)
+		{
+			var parameter = string.IsNullOrEmpty(value)
+				? new SqlParameter(name, SqlDbType.VarChar, length) { Value = DBNull.Value }
+				: new SqlParameter(name, SqlDbType.VarChar, length) { Value = value };
+			_parameters.Add(parameter);
+			return this;
+		}
+
+
+
 		public SqlParameterBuilder AddDateTime(string name, DateTime value)
 		{
 			var parameter = new SqlParameter(name, SqlDbType.DateTime) { Value = value };

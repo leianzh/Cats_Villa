@@ -2,7 +2,7 @@
   Id int not null PRIMARY KEY IDENTITY(1,1),
   UserName NVARCHAR(100) not null,
   CatName NVARCHAR(100) not null,
-  CatAge tinyint not null,
+  CatAge int not null,
   CatGender NVARCHAR(100) not null,
   CatBreed NVARCHAR(100) not null,
   Account VARCHAR(100) not null,
@@ -45,6 +45,22 @@ VALUES
   INSERT INTO Users (id,UserName, CatName,CatAge,CatGender,CatBreed,Account,Password,Phone) 
 VALUES 
  (6,'理恩', 'uhah',3,'female','mix','Leian0','ux500','0956321890');
+
+select ConfirmPassword from Users ;
+
+UPDATE users
+SET Password = 'LNN12345'
+WHERE username = 'Leian';
+
+ UPDATE users
+SET ConfirmPassword = 'LNN12345'
+WHERE username = 'Leian';
+
+
+
+SELECT * FROM Users
+
+
 
 
 
