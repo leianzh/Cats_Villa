@@ -13,40 +13,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Cats_Villa
 {
-	public partial class FormCreateUser : Form
+	public partial class FormEditPwdUser : Form
 	{
-		public FormCreateUser()
+		private readonly int _userID;
+		public FormEditPwdUser(int userID)
 		{
 			InitializeComponent();
+			_userID = userID;
 		}
 
-		private void btnAddUser_Click(object sender, EventArgs e)
+		private void btnUpdatePwd_Click(object sender, EventArgs e)
 		{
-			string userName = txtUserName.Text;
-			string catName = txtCatName.Text;
-			DateTime catBirth = DateTime.Parse(txtCatBirth.Text);
-			string catGender = txtCatGender.Text;
-			string catBreed = txtCatBreed.Text;
-			string phone = txtUserPhone.Text;
 			string account = txtAccount.Text;
 			string password = txtPassword.Text;
 
-			CreateUserVM vm = new CreateUserVM()
+			EditUserPasswordVM vm = new EditUserPasswordVM()
 			{
-				UserName = userName,
-				CatName = catName,
-				CatBirth = catBirth,
-				CatGender = catGender,
-				CatBreed = catBreed,
-				Phone = phone,
+				Id = _userID,
 				Account = account,
 				Password = password
-
 			};
 			//驗證vm閃錯誤訊息
 			(bool isValid, List<ValidationResult> errors) validationResult = Validate(vm);
@@ -56,19 +44,23 @@ namespace Cats_Villa
 				DisplayErrors(validationResult.errors);
 				return;
 			}
-			// 將 vm轉換成 dto
-			UserCreateDto dto = vm.ToDto();
+
+			UserEditDto dto = vm.ToDto();
 			IUserRepository repo = new SqlUserRepository();
 			UserService service = new UserService(repo);
 
-			service.Create(dto);
-			var frm = new FormLogin();
-			frm.Owner = this;
-			this.Close();
-
-
+			try
+			{
+				service.UpdatePassword(dto);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("更新失敗，錯誤原因:" + ex.Message);
+				return;
+			}
+			this.DialogResult = DialogResult.OK;
 		}
-		private (bool isValid, List<ValidationResult> errors) Validate(CreateUserVM vm)
+		private (bool isValid, List<ValidationResult> errors) Validate(EditUserPasswordVM vm)
 		{
 			// 得知要驗證規則
 			ValidationContext context = new ValidationContext(vm, null, null);
@@ -84,17 +76,13 @@ namespace Cats_Villa
 		}
 		private void DisplayErrors(List<ValidationResult> errors)
 		{
-			
+
 			Dictionary<string, Control> map = new Dictionary<string, Control>(StringComparer.CurrentCultureIgnoreCase)
 			{
-				{"UserName", txtUserName},
-				{"CatName", txtCatName},
-				{"CatBirth",txtCatBirth},
-				{"CatGender", txtCatGender},
-				{"CatBreed", txtCatBreed},
-				{"Phone", txtUserPhone},
 				{"Account", txtAccount},
 				{"Password", txtPassword},
+				
+
 		};
 
 			this.errorProvider1.Clear();
@@ -109,17 +97,16 @@ namespace Cats_Villa
 			}
 		}
 
-		
-
-		private void FormCreateUser_Load(object sender, EventArgs e)
+		private void FormEditPwdUser_Load(object sender, EventArgs e)
 		{
-			
-		}
+			IUserRepository repo = new SqlUserRepository();
+			UserService service = new UserService(repo);
 
-		private void FormCreateUser_FormClosing(object sender, FormClosingEventArgs e)
-		{
-			this.Owner.Show();
+			UserEditDto dto = service.Get(this._userID);
+			EditUserPasswordVM vm = dto.ToPWDViewModel();
+
+			txtAccount.Text = vm.Account;
+			txtPassword.Text = vm.Password;
 		}
 	}
-	
 }

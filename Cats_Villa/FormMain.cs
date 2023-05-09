@@ -12,11 +12,36 @@ namespace Cats_Villa
 {
 	public partial class FormMain : Form
 	{
-		public FormMain()
+		private readonly int _userID;
+		public FormMain(int userID)
 		{
 			InitializeComponent();
+			_userID = userID;
 		}
 
-		
+		private void 登出系統ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			this.Owner.Show();
+		}
+
+		private void btnUpdateUser_Click(object sender, EventArgs e)
+		{
+			var frm = new FormEditBaseUser(_userID);
+			frm.Owner = this;
+			frm.ShowDialog();
+		}
+
+		private void btnPwdUpdate_Click(object sender, EventArgs e)
+		{
+			var frm = new FormEditPwdUser(_userID);
+			frm.Owner = this;
+			frm.ShowDialog();
+
+		}
 	}
 }

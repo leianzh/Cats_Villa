@@ -41,7 +41,7 @@ namespace Cats_Villa.SqlDataLayer.infra.SqlRepositories
 
 		public UserEntity Get(int userId)
 		{
-			string sql = "SELECT * FROM Users WHERE Id=" + userId;
+			string sql = "SELECT * FROM Users WHERE Id = " + userId;
 			Func<SqlDataReader, UserEntity> funcAssembler = reader =>
 			{
 				int id = reader.GetInt32("Id", 0);
@@ -51,13 +51,33 @@ namespace Cats_Villa.SqlDataLayer.infra.SqlRepositories
 				string catGender = reader.GetString("CatGender");
 				string catBreed = reader.GetString("CatBreed");
 				string account = reader.GetString("Account");
+				string password = reader.GetString("Password");
 				string phone = reader.GetString("Phone");
 
 
 
-				return new UserEntity(userName, catName, catBirth, catGender, catBreed, account, phone, id.ToString());
+				return new UserEntity(userName, catName, catBirth, catGender, catBreed, account, password, phone, id);
 			};
-			return SqlDb.Get<UserEntity>(SqlDb.GetConnection, funcAssembler, sql, null);
+			return SqlDb.Get<UserEntity>(SqlDb.GetConnection, funcAssembler, sql);
+		}
+
+		public User Get2(int userId)
+		{
+			throw new NotImplementedException();
+		}
+
+		public User GetByAccount(string account)
+		{
+			string sql = "SELECT * FROM Users WHERE Account=@Account";
+			SqlParameter parameter = new SqlParameter("@Account", System.Data.SqlDbType.VarChar, 100) { Value = account };
+			Func<SqlDataReader, User> funcAssembler = reader =>
+			{
+				int id = reader.GetInt32("Id", 0);
+				string acc = reader.GetString("Account");
+				string password = reader.GetString("Password");
+				return new User() { Id = id, Account = acc, Password = password };
+			};
+			return SqlDb.Get<User>(SqlDb.GetConnection, funcAssembler, sql, parameter);
 		}
 
 		public List<UserEntity> Search(string userName, int? userId)
@@ -68,8 +88,8 @@ namespace Cats_Villa.SqlDataLayer.infra.SqlRepositories
 			string where = string.Empty;
 			if (string.IsNullOrEmpty(userName) == false)
 			{
-				where += " AND name =@name";
-				parameters.Add(new SqlParameter("@name", System.Data.SqlDbType.NVarChar, 100) { Value = userName });
+				where += " AND UserName =@UserName";
+				parameters.Add(new SqlParameter("@UserName", System.Data.SqlDbType.NVarChar, 100) { Value = userName });
 
 			}
 			if (userId.HasValue)
@@ -81,7 +101,7 @@ namespace Cats_Villa.SqlDataLayer.infra.SqlRepositories
 			sql += where;
 			#endregion
 
-			sql += " ORDER BY DisplayOrder";
+			
 			Func<SqlDataReader, UserEntity> funcAssembler = reader =>
 			{
 				int id = reader.GetInt32("Id", 0);
@@ -91,9 +111,10 @@ namespace Cats_Villa.SqlDataLayer.infra.SqlRepositories
 				string catGender = reader.GetString("CatGender");
 				string catBreed = reader.GetString("CatBreed");
 				string account = reader.GetString("Account");
+				string password = reader.GetString("Password");
 				string phone = reader.GetString("Phone");
 
-				return new UserEntity(userName2, catName, catBirth, catGender, catBreed, account, phone, id.ToString());
+				return new UserEntity(userName2, catName, catBirth, catGender, catBreed, account, password, phone, id);
 			};
 			return SqlDb.Search(SqlDb.GetConnection, funcAssembler, sql, parameters.ToArray());
 
@@ -102,7 +123,13 @@ namespace Cats_Villa.SqlDataLayer.infra.SqlRepositories
 
 		public void Update(UserEntity entity)
 		{
-			string sql = "UPDATE Users SET  name=@name,CatName = @CatName,CatBirth = @CatBirth, CatGender=@CatGender,CatBreed=@CatBreed,Account=@Account,Password=@Password,Phone=@Phone WHERE Id=@Id";
+			string sql = @"UPDATE Users SET  
+UserName=@UserName,
+CatName = @CatName,
+CatBirth = @CatBirth, 
+CatGender=@CatGender,
+CatBreed=@CatBreed,
+Phone=@Phone WHERE Id=@Id";
 			var parameters = SqlParameterBuilder.Create()
 				.AddInt("@Id", entity.Id)
 				.AddNvarchar("@UserName", 100, entity.UserName)
@@ -110,12 +137,22 @@ namespace Cats_Villa.SqlDataLayer.infra.SqlRepositories
 				.AddDateTime("@CatBirth", entity.CatBirth)
 				.AddNvarchar("@CatGender", 100, entity.CatGender)
 				.AddNvarchar("@CatBreed", 100, entity.CatBreed)
-				.Addvarchar("@Account", 100, entity.Account)
-				.Addvarchar("@Password", 100, entity.Password)
 				.Addvarchar("@Phone", 100, entity.Phone)
 				.Build();
 			SqlDb.UpdateOrDelete(SqlDb.GetConnection, sql, parameters);
 			
+		}
+
+		public void UpdatePassword(UserEntity entity)
+		{
+			string sql = "UPDATE Users SET Account=@Account,Password = @Password WHERE Id=@Id";
+			var parameters = SqlParameterBuilder.Create()
+				.AddInt("@Id", entity.Id)
+				.Addvarchar("@Account", 100, entity.Account)
+				.Addvarchar("@Password", 100, entity.Password)
+				.Build();
+			SqlDb.UpdateOrDelete(SqlDb.GetConnection, sql, parameters);
+
 		}
 	}
 }

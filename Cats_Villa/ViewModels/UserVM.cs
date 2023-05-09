@@ -47,8 +47,8 @@ namespace Cats_Villa.ViewModels
 		public string Password { get; set; }
 
 		[Display(Name = "電話號碼")]
-		[Range(1, 10, ErrorMessage = "{0}必須介於1~10之間")]
-		[MaxLength(10, ErrorMessage = "{0}長度不可大於10")]
+		[Required(ErrorMessage = "{0}必填")]
+		[MaxLength(10, ErrorMessage = "{0}長度不可大於 {1}")]
 		public string Phone { get; set; }
 
 	}
@@ -103,8 +103,8 @@ namespace Cats_Villa.ViewModels
 		public string Password { get; set; }
 
 		[Display(Name = "電話號碼")]
-		[Range(1, 10, ErrorMessage = "{0}必須介於1~10之間")]
-		[MaxLength(10, ErrorMessage = "{0}長度不可大於10")]
+		[Required(ErrorMessage = "{0}必填")]
+		[MaxLength(10, ErrorMessage = "{0}長度不可大於 {1}")]
 		public string Phone { get; set; }
 	}
 	public static class CreateUserVMExs //針對VM轉dto的擴充方法
@@ -150,19 +150,19 @@ namespace Cats_Villa.ViewModels
 		[Required(ErrorMessage = "貓咪品種必填")]
 		public string CatBreed { get; set; }
 
-		[Display(Name = "帳號")]
-		[Required(ErrorMessage = "帳號必填")]
-		[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Za-z\d])[\w]{6,}$", ErrorMessage = "帳號必須包含英文和數字，且英文和數字同時都要有，長度至少為6個字元")]
-		public string Account { get; set; }
+		//[Display(Name = "帳號")]
+		//[Required(ErrorMessage = "帳號必填")]
+		//[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Za-z\d])[\w]{6,}$", ErrorMessage = "帳號必須包含英文和數字，且英文和數字同時都要有，長度至少為6個字元")]
+		//public string Account { get; set; }
 
-		[Display(Name = "密碼")]
-		[Required(ErrorMessage = "密碼必填")]
-		[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Za-z\d])[\w]{8,}$", ErrorMessage = "密碼必須包含英文和數字，且英文和數字同時都要有，長度至少為8個字元")]
-		public string Password { get; set; }
+		//[Display(Name = "密碼")]
+		//[Required(ErrorMessage = "密碼必填")]
+		//[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Za-z\d])[\w]{8,}$", ErrorMessage = "密碼必須包含英文和數字，且英文和數字同時都要有，長度至少為8個字元")]
+		//public string Password { get; set; }
 
 		[Display(Name = "電話號碼")]
-		[Range(1, 10, ErrorMessage = "{0}必須介於1~10之間")]
-		[MaxLength(10, ErrorMessage = "{0}長度不可大於10")]
+		[Required(ErrorMessage = "{0}必填")]
+		[MaxLength(10, ErrorMessage = "{0}長度不可大於 {1}")]
 		public string Phone { get; set; }
 
 	}
@@ -178,8 +178,8 @@ namespace Cats_Villa.ViewModels
 				CatBirth = vm.CatBirth,
 				CatGender = vm.CatGender,
 				CatBreed = vm.CatBreed,
-				Account = vm.Account,
-				Password = vm.Password,
+				//Account = vm.Account,
+				//Password = vm.Password,
 				Phone = vm.Phone,
 			};
 		}
@@ -193,9 +193,54 @@ namespace Cats_Villa.ViewModels
 				CatBirth = dto.CatBirth,
 				CatGender = dto.CatGender,
 				CatBreed = dto.CatBreed,
+				//Account = dto.Account,
+				//Password = dto.Password,
+				Phone = dto.Phone,
+			};
+		}
+	}
+	public class EditUserPasswordVM
+	{
+
+		[Display(Name = "使用者名稱")]
+		[Required(ErrorMessage = "使用者名稱必填")]
+		public int Id { get; set; }
+
+
+
+		[Display(Name = "帳號")]
+		[Required(ErrorMessage = "帳號必填")]
+		[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Za-z\d])[\w]{6,}$", ErrorMessage = "帳號必須包含英文和數字，且英文和數字同時都要有，長度至少為6個字元")]
+		public string Account { get; set; }
+
+		[Display(Name = "密碼")]
+		[Required(ErrorMessage = "密碼必填")]
+		[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Za-z\d])[\w]{8,}$", ErrorMessage = "密碼必須包含英文和數字，且英文和數字同時都要有，長度至少為8個字元")]
+		public string Password { get; set; }
+
+
+
+	}
+	public static class UserEditPWDVMExs//針對VM,dto互轉的擴充方法
+	{
+		public static UserEditDto ToDto(this EditUserPasswordVM vm)
+		{
+			return new UserEditDto
+			{
+				Id = vm.Id,
+				Account = vm.Account,
+				Password = vm.Password,
+
+			};
+		}
+		public static EditUserPasswordVM ToPWDViewModel(this UserEditDto dto)
+		{
+			return new EditUserPasswordVM
+			{
+				Id = dto.Id,
 				Account = dto.Account,
 				Password = dto.Password,
-				Phone = dto.Phone,
+
 			};
 		}
 	}

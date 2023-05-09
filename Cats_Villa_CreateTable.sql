@@ -36,12 +36,22 @@ UPDATE users
 SET CatBirth = '2023-03-29'
 WHERE username = '理恩';
 
+delete from users where id=21;
 
 SELECT * FROM Users
 
 
 
 SELECT * FROM Users
+
+UPDATE Users SET Account = 'ACC123',Password = 'ZZZ12345' WHERE Id = 3;
+
+select Title,Description,RoomPrice,CheckInDate,CheckOutDate
+from Rooms
+join Orders
+ON Orders.ROOMId = Rooms.Id
+
+
 
 
 

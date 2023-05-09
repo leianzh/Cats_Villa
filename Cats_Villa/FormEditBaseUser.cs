@@ -10,22 +10,23 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Cats_Villa
 {
-	public partial class FormCreateUser : Form
+	public partial class FormEditBaseUser : Form
 	{
-		public FormCreateUser()
+		private readonly int _userID;
+		public FormEditBaseUser(int userID)
 		{
 			InitializeComponent();
+			_userID = userID;
 		}
 
-		private void btnAddUser_Click(object sender, EventArgs e)
+		private void btnUpdate_Click(object sender, EventArgs e)
 		{
 			string userName = txtUserName.Text;
 			string catName = txtCatName.Text;
@@ -33,20 +34,16 @@ namespace Cats_Villa
 			string catGender = txtCatGender.Text;
 			string catBreed = txtCatBreed.Text;
 			string phone = txtUserPhone.Text;
-			string account = txtAccount.Text;
-			string password = txtPassword.Text;
 
-			CreateUserVM vm = new CreateUserVM()
+			EditUserVM vm = new EditUserVM()
 			{
-				UserName = userName,
-				CatName = catName,
-				CatBirth = catBirth,
-				CatGender = catGender,
+				Id = _userID,
+				UserName= userName,
+				CatName= catName,
+				CatBirth= catBirth,
+				CatGender= catGender,
 				CatBreed = catBreed,
-				Phone = phone,
-				Account = account,
-				Password = password
-
+				Phone= phone
 			};
 			//驗證vm閃錯誤訊息
 			(bool isValid, List<ValidationResult> errors) validationResult = Validate(vm);
@@ -56,19 +53,33 @@ namespace Cats_Villa
 				DisplayErrors(validationResult.errors);
 				return;
 			}
-			// 將 vm轉換成 dto
-			UserCreateDto dto = vm.ToDto();
+
+			UserEditDto dto = vm.ToDto();
 			IUserRepository repo = new SqlUserRepository();
 			UserService service = new UserService(repo);
 
-			service.Create(dto);
-			var frm = new FormLogin();
-			frm.Owner = this;
-			this.Close();
-
+			try 
+			{
+				service.Update(dto);
+			}
+			catch (Exception ex) 
+			{
+				MessageBox.Show("更新失敗，錯誤原因:" + ex.Message);
+				return;
+			}
+			//IGrid owner = this.Owner as IGrid;
+			//if (owner == null) 
+			//{
+			//	MessageBox.Show("忘了把owner實作IGrid");
+			//}
+			//else 
+			//{
+			//	owner.Display();
+			//}
+			this.DialogResult = DialogResult.OK;
 
 		}
-		private (bool isValid, List<ValidationResult> errors) Validate(CreateUserVM vm)
+		private (bool isValid, List<ValidationResult> errors) Validate(EditUserVM vm)
 		{
 			// 得知要驗證規則
 			ValidationContext context = new ValidationContext(vm, null, null);
@@ -84,7 +95,7 @@ namespace Cats_Villa
 		}
 		private void DisplayErrors(List<ValidationResult> errors)
 		{
-			
+
 			Dictionary<string, Control> map = new Dictionary<string, Control>(StringComparer.CurrentCultureIgnoreCase)
 			{
 				{"UserName", txtUserName},
@@ -93,8 +104,7 @@ namespace Cats_Villa
 				{"CatGender", txtCatGender},
 				{"CatBreed", txtCatBreed},
 				{"Phone", txtUserPhone},
-				{"Account", txtAccount},
-				{"Password", txtPassword},
+				
 		};
 
 			this.errorProvider1.Clear();
@@ -109,17 +119,20 @@ namespace Cats_Villa
 			}
 		}
 
-		
-
-		private void FormCreateUser_Load(object sender, EventArgs e)
+		private void FormEditBaseUser_Load(object sender, EventArgs e)
 		{
-			
-		}
+			IUserRepository repo = new SqlUserRepository();
+			UserService service = new UserService(repo);
 
-		private void FormCreateUser_FormClosing(object sender, FormClosingEventArgs e)
-		{
-			this.Owner.Show();
+			UserEditDto dto = service.Get(this._userID);
+			EditUserVM vm = dto.ToViewModel();
+
+			txtUserName.Text = vm.UserName;
+			txtCatName.Text = vm.CatName;
+			txtCatBirth.Text = vm.CatBirth.ToString();
+			txtCatGender.Text = vm.CatGender;
+			txtCatBreed.Text = vm.CatBreed;
+			txtUserPhone.Text = vm.Phone;
 		}
 	}
-	
 }
