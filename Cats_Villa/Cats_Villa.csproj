@@ -47,6 +47,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cats_VillaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cats_VillaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Cats_VillaDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cats_VillaDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Cats_VillaDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cats_VillaDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Cats_VillaDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cats_VillaDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,10 +103,23 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrder.Designer.cs">
+      <DependentUpon>FormOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrderEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderEdit.Designer.cs">
+      <DependentUpon>FormOrderEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="IGrid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\OrderVM.cs" />
+    <Compile Include="ViewModels\RoomVM.cs" />
     <Compile Include="ViewModels\UserVM.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -106,6 +139,12 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOrder.resx">
+      <DependentUpon>FormOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrderEdit.resx">
+      <DependentUpon>FormOrderEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -115,6 +154,50 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Cats_VillaDataSet.xsc">
+      <DependentUpon>Cats_VillaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Cats_VillaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Cats_VillaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Cats_VillaDataSet.xss">
+      <DependentUpon>Cats_VillaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Cats_VillaDataSet1.xsc">
+      <DependentUpon>Cats_VillaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Cats_VillaDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Cats_VillaDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Cats_VillaDataSet1.xss">
+      <DependentUpon>Cats_VillaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Cats_VillaDataSet2.xsc">
+      <DependentUpon>Cats_VillaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Cats_VillaDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Cats_VillaDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Cats_VillaDataSet2.xss">
+      <DependentUpon>Cats_VillaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Cats_VillaDataSet3.xsc">
+      <DependentUpon>Cats_VillaDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Cats_VillaDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Cats_VillaDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Cats_VillaDataSet3.xss">
+      <DependentUpon>Cats_VillaDataSet3.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

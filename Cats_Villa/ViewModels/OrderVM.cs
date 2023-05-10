@@ -15,16 +15,24 @@ namespace Cats_Villa.ViewModels
 		public int Id { get; set; }
 		public int UserId { get; set; }
 		public int RoomId { get; set; }
-		[Display(Name = "入住日期")]
+
+		[Display(Name = "房間類型")]
+		[Required(ErrorMessage = "房型必填")]
+		public string RoomType { get; set; }
+
+        [Display(Name = "入住日期")]
+		[Required(ErrorMessage = "入住日期必填")]
+		[DataType(DataType.Date, ErrorMessage = "入住日期不小於退房日期")]
 		public DateTime CheckInDate { get; set; }
 		[Display(Name = "退房日期")]
+		[Required(ErrorMessage = "退房日期必填")]
 		public DateTime CheckOutDate { get; set; }
-		[Display(Name = "入住天數")]
-		public int StayDuration { get; set; }
+		
 		[Display(Name = "訂單成立時間")]
 		public DateTime OrderCreat_at { get; set; }
 		[Display(Name = "房間價格")]
-		public int Price { get; set; }
+		[Required(ErrorMessage = "房間價格必填")]
+		public int OrderPrice { get; set; }
 
 	}
 	public static class OrderDtoExts
@@ -36,11 +44,11 @@ namespace Cats_Villa.ViewModels
 				Id = dto.Id,
 				UserId = dto.UserId,
 				RoomId = dto.RoomId,
+				RoomType = dto.RoomType,
 				CheckInDate = dto.CheckInDate,
 				CheckOutDate = dto.CheckOutDate,
-				StayDuration = dto.StayDuration,
 				OrderCreat_at = dto.OrderCreat_at,
-				Price = dto.Price,
+				OrderPrice = dto.OrderPrice,
 			};
 		}
 	}
@@ -48,17 +56,25 @@ namespace Cats_Villa.ViewModels
 	{
 		
 		public int UserId { get; set; }
-		public int RoomId { get; set; }
+		//public int RoomId { get; set; }
+
+		[Display(Name = "房間類型")]
+		[Required(ErrorMessage = "房型必填")]
+		public string RoomType { get; set; }
+
 		[Display(Name = "入住日期")]
+		[Required(ErrorMessage = "入住日期必填")]
+		[DataType(DataType.Date, ErrorMessage = "入住日期不小於退房日期")]
 		public DateTime CheckInDate { get; set; }
 		[Display(Name = "退房日期")]
+		[Required(ErrorMessage = "退房日期必填")]
 		public DateTime CheckOutDate { get; set; }
-		[Display(Name = "入住天數")]
-		public int StayDuration { get; set; }
-		[Display(Name = "訂單成立時間")]
-		public DateTime OrderCreat_at { get; set; }
+
+		//[Display(Name = "訂單成立時間")]
+		//public DateTime OrderCreat_at { get; set; }
 		[Display(Name = "房間價格")]
-		public int Price { get; set; }
+		[Required(ErrorMessage = "房間價格必填")]
+		public int OrderPrice { get; set; }
 
 	}
 	public static class OrderAddVMExts
@@ -68,30 +84,39 @@ namespace Cats_Villa.ViewModels
 			return new OrderAddDto
 			{
 				UserId = vm.UserId,
-				RoomId = vm.RoomId,
+				//RoomId = vm.RoomId,
+				RoomType = vm.RoomType,
 				CheckInDate = vm.CheckInDate,
 				CheckOutDate = vm.CheckOutDate,
-				StayDuration = vm.StayDuration,
-				OrderCreat_at = vm.OrderCreat_at,
-				Price = vm.Price,
+				//OrderCreat_at = vm.OrderCreat_at,
+				OrderPrice = vm.OrderPrice,
 			};
 		}
 	}
+
 	public class OrderEditVM
 	{
 		public int Id { get; set; }
 		public int UserId { get; set; }
 		public int RoomId { get; set; }
+
+		[Display(Name = "房間類型")]
+		[Required(ErrorMessage = "房型必填")]
+		public string RoomType { get; set; }
+
 		[Display(Name = "入住日期")]
+		[Required(ErrorMessage = "入住日期必填")]
+		[DataType(DataType.Date, ErrorMessage = "入住日期不小於退房日期")]
 		public DateTime CheckInDate { get; set; }
 		[Display(Name = "退房日期")]
+		[Required(ErrorMessage = "退房日期必填")]
 		public DateTime CheckOutDate { get; set; }
-		[Display(Name = "入住天數")]
-		public int StayDuration { get; set; }
+
 		[Display(Name = "訂單成立時間")]
 		public DateTime OrderCreat_at { get; set; }
 		[Display(Name = "房間價格")]
-		public int Price { get; set; }
+		[Required(ErrorMessage = "房間價格必填")]
+		public int OrderPrice { get; set; }
 
 	}
 	public static class OrderEditVMExts
@@ -103,11 +128,11 @@ namespace Cats_Villa.ViewModels
 				Id = vm.Id,
 				UserId = vm.UserId,
 				RoomId = vm.RoomId,
+				RoomType = vm.RoomType,
 				CheckInDate = vm.CheckInDate,
 				CheckOutDate = vm.CheckOutDate,
-				StayDuration = vm.StayDuration,
 				OrderCreat_at = vm.OrderCreat_at,
-				Price = vm.Price,
+				OrderPrice = vm.OrderPrice,
 			};
 		}
 		public static OrderEditVM ToViewModel(this OrderEditDto dto)
@@ -117,11 +142,11 @@ namespace Cats_Villa.ViewModels
 				Id = dto.Id,
 				UserId = dto.UserId,
 				RoomId = dto.RoomId,
+				RoomType = dto.RoomType,
 				CheckInDate = dto.CheckInDate,
 				CheckOutDate = dto.CheckOutDate,
-				StayDuration = dto.StayDuration,
 				OrderCreat_at = dto.OrderCreat_at,
-				Price = dto.Price,
+				OrderPrice = dto.OrderPrice,
 			};
 		}
 	}

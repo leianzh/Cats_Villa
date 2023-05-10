@@ -80,7 +80,7 @@
 			this.txtAccount.Name = "txtAccount";
 			this.txtAccount.Size = new System.Drawing.Size(100, 22);
 			this.txtAccount.TabIndex = 4;
-			this.txtAccount.Text = "joy777";
+			this.txtAccount.Text = "Leian666";
 			// 
 			// txtPassword
 			// 
@@ -89,7 +89,7 @@
 			this.txtPassword.PasswordChar = '*';
 			this.txtPassword.Size = new System.Drawing.Size(100, 22);
 			this.txtPassword.TabIndex = 5;
-			this.txtPassword.Text = "jjo67890";
+			this.txtPassword.Text = "LNN12345";
 			// 
 			// FormLogin
 			// 

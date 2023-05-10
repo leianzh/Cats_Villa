@@ -1,0 +1,154 @@
+﻿using Cats_Villa.SqlDataLayer.Dtos;
+using Cats_Villa.SqlDataLayer.infra.SqlRepositories;
+using Cats_Villa.SqlDataLayer.interfaces;
+using Cats_Villa.SqlDataLayer.Services;
+using Cats_Villa.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
+namespace Cats_Villa
+{
+	public partial class FormOrder : Form
+	{
+		private readonly int _userId;
+
+		public FormOrder(int userId)
+		{
+			_userId = userId;
+			InitializeComponent();
+		}
+
+		private void btnOrder_Click(object sender, EventArgs e)
+		{
+			OrderAddVM vm = new OrderAddVM()
+			{
+				UserId = _userId,
+				RoomType = comboBox1.Text,
+
+				CheckInDate = dateTimePicker1.Value,
+				CheckOutDate = dateTimePicker2.Value,
+
+				OrderPrice = ((RoomDto)comboBox2.SelectedItem).RoomPrice
+				
+
+
+
+			};
+
+
+
+			OrderAddDto dto = vm.ToDto();
+			IOrderRepository repo = new SqlOrderRepository();
+			OrderService service2 = new OrderService(repo);
+			service2.Create(dto);
+
+
+			//驗證vm閃錯誤訊息
+			(bool isValid, List<ValidationResult> errors) validationResult = Validate(vm);
+			if (validationResult.isValid == false)
+			{
+				this.errorProvider1.Clear();
+				DisplayErrors(validationResult.errors);
+				return;
+			}
+
+
+
+
+
+
+			var frm = new FormMain(_userId);
+			frm.Owner = this;
+			frm.ShowDialog();
+			
+
+		}
+
+		private void FormOrder_Load(object sender, EventArgs e)
+		{
+			IRoomRepository repo = new SqlRoomRepository();
+			RoomService service = new RoomService(repo);
+
+			var rooms = service.Search(null,null, string.Empty, string.Empty, string.Empty, null);
+
+			//comboBox1.DataSource = rooms;
+
+
+			comboBox1.Items.AddRange(rooms.ToArray());
+			comboBox1.DisplayMember = "RoomType";
+
+			var roomPrice = service.Search(null,null, string.Empty, string.Empty, string.Empty, null);
+			comboBox2.Items.AddRange(roomPrice.ToArray());
+
+			//comboBox2.DataSource = roomPrice;
+			comboBox2.DisplayMember = "RoomPrice";
+
+
+		}
+
+		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+		{
+
+			// 取得目前的入住日期和退房日期
+			DateTime checkInDate = dateTimePicker1.Value.Date;
+			DateTime checkOutDate = dateTimePicker2.Value.Date;
+
+			// 如果入住日期小於退房日期，就設定退房日期的最小值為入住日期
+			if (checkInDate < checkOutDate)
+			{
+				dateTimePicker2.MinDate = checkInDate;
+			}
+			else
+			{
+				// 如果入住日期大於或等於退房日期，就設定退房日期的最小值為入住日期加一天
+				dateTimePicker1.Value = checkOutDate.AddDays(-1);
+				dateTimePicker2.MinDate = checkOutDate;
+			}
+		}
+		private (bool isValid, List<ValidationResult> errors) Validate(OrderAddVM vm)
+		{
+			// 得知要驗證規則
+			ValidationContext context = new ValidationContext(vm, null, null);
+
+			// 用來存放錯誤的集合,因為可能有零到多個錯誤
+			List<ValidationResult> errors = new List<ValidationResult>();
+
+			// 驗證 model
+			bool validateAllProperties = true; // 是否驗證所有規則,而非只驗證Required規則
+			bool isValid = Validator.TryValidateObject(vm, context, errors, validateAllProperties);
+
+			return (isValid, errors);
+		}
+		private void DisplayErrors(List<ValidationResult> errors)
+		{
+			// 大小寫不同仍視為相同的key
+			Dictionary<string, Control> map = new Dictionary<string, Control>(StringComparer.CurrentCultureIgnoreCase)
+			{
+				{"CheckInDate", dateTimePicker1},
+				{"CheckOutDate", dateTimePicker2},
+				{"OrderPrice",comboBox2 },
+				{"RoomType", comboBox1}
+			};
+
+			this.errorProvider1.Clear();
+
+			foreach (ValidationResult error in errors)
+			{
+				string propName = error.MemberNames.FirstOrDefault();
+				if (propName != null && map.TryGetValue(propName, out Control ctrl))
+				{
+					this.errorProvider1.SetError(ctrl, error.ErrorMessage);
+				}
+			}
+		}
+	}
+}

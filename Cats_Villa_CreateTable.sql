@@ -47,9 +47,40 @@ SELECT * FROM Users
 UPDATE Users SET Account = 'ACC123',Password = 'ZZZ12345' WHERE Id = 3;
 
 select Title,Description,RoomPrice,CheckInDate,CheckOutDate
-from Rooms
-join Orders
-ON Orders.ROOMId = Rooms.Id
+from Room
+join [Order]
+ON [Order].ROOMId = Room.Id
+
+SET IDENTITY_INSERT [dbo].[Order] ON 
+insert into [Order] (Id,UserId,RoomId,RoomType,CheckInDate,CheckOutDate,OrderCreat_at,OrderPrice)
+values
+(1,1,1,'經典房', '2023-05-07','2023-05-09','2023-05-07',770),
+
+(2,2,2,'尊爵房', '2023-04-28','2023-05-01','2023-04-028',1000),
+(3,3,3,'森林房', '2023-03-29','2023-04-01','2023-03-29',2300);
+
+select * from [Order];
+
+
+
+
+insert into [Room] (RoomPrice,Title,Description,RoomsImage)
+values
+(770,'經典房', ' ',' '),
+
+(1000,'尊爵房', ' ',' '),
+(2300,'森林房', ' ',' ');
+
+select * from Room;
+
+select * from [Order];
+
+SELECT * FROM [Order]
+
+UPDATE Room SET RoomType = '森林房',Title = ' ' WHERE Id = 3;
+
+
+
 
 
 

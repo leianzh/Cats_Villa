@@ -19,36 +19,30 @@ namespace Cats_Villa.SqlDataLayer.Services
 		}
 		public void Create(OrderAddDto dto)
 		{
-			
 			OrderEntity entity = dto.ToEntity();
 			_repo.Create(entity);
 		}
 
 		public void Update(OrderEditDto dto)
 		{
-			
-			
 			OrderEntity entity = dto.ToEntity();
 			_repo.Update(entity);
 		}
 
-		public void Delete(int categoryId)
+		public void Delete(int orderId)
 		{
-			_repo.Delete(categoryId);
+			_repo.Delete(orderId);
 		}
 
-		public List<OrderDto> Search(DateTime? checkInDate,DateTime? checkOutDate, int? orderId)
+		public List<OrderDto> Search(string roomType,int? orderPrice,DateTime? checkInDate,DateTime? checkOutDate, int? userId)
 		{
-			List<OrderEntity> data = _repo.Search(checkInDate, checkOutDate, orderId);
-
-
+			List<OrderEntity> data = _repo.Search(roomType, orderPrice,checkInDate, checkOutDate, userId);
 			return data.Select(x => x.ToDto()).ToList();
 		}
 
-		public OrderEditDto Get(int orderId)
+		public OrderEditDto Get(int userId)
 		{
-
-			return _repo.Get(orderId).ToEditDto();
+			return _repo.Get(userId).ToEditDto();
 		}
 	}
 }

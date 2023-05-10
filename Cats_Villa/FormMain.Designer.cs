@@ -33,7 +33,8 @@
 			this.登出系統ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.btnUpdateUser = new System.Windows.Forms.Button();
 			this.btnPwdUpdate = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnOrder = new System.Windows.Forms.Button();
+			this.btnSearchOrder = new System.Windows.Forms.Button();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -83,26 +84,38 @@
 			this.btnPwdUpdate.UseVisualStyleBackColor = true;
 			this.btnPwdUpdate.Click += new System.EventHandler(this.btnPwdUpdate_Click);
 			// 
-			// button1
+			// btnOrder
 			// 
-			this.button1.Location = new System.Drawing.Point(267, 101);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 3;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnOrder.Location = new System.Drawing.Point(267, 101);
+			this.btnOrder.Name = "btnOrder";
+			this.btnOrder.Size = new System.Drawing.Size(75, 23);
+			this.btnOrder.TabIndex = 3;
+			this.btnOrder.Text = "線上訂房";
+			this.btnOrder.UseVisualStyleBackColor = true;
+			this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+			// 
+			// btnSearchOrder
+			// 
+			this.btnSearchOrder.Location = new System.Drawing.Point(383, 101);
+			this.btnSearchOrder.Name = "btnSearchOrder";
+			this.btnSearchOrder.Size = new System.Drawing.Size(91, 23);
+			this.btnSearchOrder.TabIndex = 4;
+			this.btnSearchOrder.Text = "查詢訂房紀錄";
+			this.btnSearchOrder.UseVisualStyleBackColor = true;
+			this.btnSearchOrder.Click += new System.EventHandler(this.btnSearchOrder_Click);
 			// 
 			// FormMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(533, 300);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.btnSearchOrder);
+			this.Controls.Add(this.btnOrder);
 			this.Controls.Add(this.btnPwdUpdate);
 			this.Controls.Add(this.btnUpdateUser);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "FormMain";
 			this.Text = "FormMain";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
@@ -120,6 +133,7 @@
 		private System.Windows.Forms.ToolStripMenuItem 登出系統ToolStripMenuItem;
 		private System.Windows.Forms.Button btnUpdateUser;
 		private System.Windows.Forms.Button btnPwdUpdate;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnOrder;
+		private System.Windows.Forms.Button btnSearchOrder;
 	}
 }

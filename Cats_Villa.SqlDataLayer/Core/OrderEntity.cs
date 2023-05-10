@@ -11,21 +11,21 @@ namespace Cats_Villa.SqlDataLayer.Core
 		public int Id { get; private set; }
         public int UserId { get; private set; }
         public int RoomId { get; private set; }
+        public string RoomType { get; private set; }
         public DateTime CheckInDate { get; private set; }
         public DateTime CheckOutDate { get; private set; }
-        public int StayDuration { get; private set; }
         public DateTime OrderCreat_at { get; private set; }
-        public int Price { get; private set; }  
-        public OrderEntity(int userId, int roomId, DateTime checkInDate, DateTime checkOutDate, int stayDuration, DateTime orderCreat_at, int price,int id = 0)
+        public int OrderPrice { get; private set; }  
+        public OrderEntity(int userId, int roomId,string roomType, DateTime checkInDate, DateTime checkOutDate, DateTime orderCreat_at, int orderPrice,int id = 0)
 		{
 			Id = id;
 			UserId = userId;
 			RoomId = roomId;
+			RoomType = roomType;
 			CheckInDate = checkInDate;
 			CheckOutDate = checkOutDate;
-			StayDuration = stayDuration;
 			OrderCreat_at = orderCreat_at;
-			Price = price;
+			OrderPrice = orderPrice;
 		}
 	}
 }

@@ -11,19 +11,14 @@ namespace Cats_Villa.SqlDataLayer.Dtos
 {
 	public class OrderDto
 	{
-		public int Id { get; set; }
+		public int Id { get;  set; }
 		public int UserId { get; set; }
-		public int RoomId { get; set; }
-		
-		public DateTime CheckInDate { get; set; }
-		
-		public DateTime CheckOutDate { get; set; }
-		
-		public int StayDuration { get; set; }
-		
-		public DateTime OrderCreat_at { get; set; }
-		
-		public int Price { get; set; }
+		public int RoomId { get;  set; }
+		public string RoomType { get; set; }
+		public DateTime CheckInDate { get;  set; }
+		public DateTime CheckOutDate { get;  set; }
+		public DateTime OrderCreat_at { get;  set; }
+		public int OrderPrice { get;  set; }
 	}
 	public static class OrderEntityExts
 	{
@@ -34,35 +29,30 @@ namespace Cats_Villa.SqlDataLayer.Dtos
 				Id = entity.Id,
 				UserId = entity.UserId,
 				RoomId = entity.RoomId,
+				RoomType = entity.RoomType,
 				CheckInDate = entity.CheckInDate,
 				CheckOutDate = entity.CheckOutDate,
-				StayDuration = entity.StayDuration,
 				OrderCreat_at = entity.OrderCreat_at,
-				Price = entity.Price,
+				OrderPrice = entity.OrderPrice,
 			};
 		}
 	}
 	public class OrderAddDto
 	{
-		public int Id { get; set; }
+		
 		public int UserId { get; set; }
 		public int RoomId { get; set; }
-
+		public string RoomType { get; set; }
 		public DateTime CheckInDate { get; set; }
-
 		public DateTime CheckOutDate { get; set; }
-
-		public int StayDuration { get; set; }
-
 		public DateTime OrderCreat_at { get; set; }
-
-		public int Price { get; set; }
+		public int OrderPrice { get; set; }
 	}
 	public static class OrderAddDtoExts
 	{
 		public static OrderEntity ToEntity(this OrderAddDto dto)
 		{
-			return new OrderEntity(dto.UserId, dto.RoomId , dto.CheckInDate ,dto.CheckOutDate ,dto.StayDuration , dto.OrderCreat_at ,dto.Price,dto.Id);
+			return new OrderEntity(dto.UserId, dto.RoomId ,dto.RoomType, dto.CheckInDate ,dto.CheckOutDate  , dto.OrderCreat_at ,dto.OrderPrice);
 		}
 	}
 	public class OrderEditDto
@@ -70,16 +60,11 @@ namespace Cats_Villa.SqlDataLayer.Dtos
 		public int Id { get; set; }
 		public int UserId { get; set; }
 		public int RoomId { get; set; }
-
+		public string RoomType { get; set; }
 		public DateTime CheckInDate { get; set; }
-
 		public DateTime CheckOutDate { get; set; }
-
-		public int StayDuration { get; set; }
-
 		public DateTime OrderCreat_at { get; set; }
-
-		public int Price { get; set; }
+		public int OrderPrice { get; set; }
 	}
 	public static class OrderEditDtoExts
 	{
@@ -90,16 +75,16 @@ namespace Cats_Villa.SqlDataLayer.Dtos
 				Id = entity.Id,
 				UserId = entity.UserId,
 				RoomId = entity.RoomId,
+				RoomType = entity.RoomType,
 				CheckInDate = entity.CheckInDate,
 				CheckOutDate = entity.CheckOutDate,
-				StayDuration = entity.StayDuration,
 				OrderCreat_at = entity.OrderCreat_at,
-				Price = entity.Price
+				OrderPrice = entity.OrderPrice
 			};
 		}
 		public static OrderEntity ToEntity(this OrderEditDto dto)
 		{
-			return new OrderEntity(dto.UserId, dto.RoomId, dto.CheckInDate, dto.CheckOutDate, dto.StayDuration, dto.OrderCreat_at, dto.Price, dto.Id);
+			return new OrderEntity(dto.UserId, dto.RoomId, dto.RoomType, dto.CheckInDate, dto.CheckOutDate, dto.OrderCreat_at, dto.OrderPrice, dto.Id);
 		}
 	}
 }
