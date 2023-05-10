@@ -29,28 +29,33 @@ namespace Cats_Villa
 
 		private void btnOrder_Click(object sender, EventArgs e)
 		{
+			RoomDto room = new RoomDto();
+			
+			if(comboBox1.SelectedItem == null) 
+			{
+				room.RoomType="";
+			}
+			else 
+			{
+				room.RoomType = ((RoomDto)comboBox1.SelectedItem).RoomType;
+			}
+			if(comboBox2.SelectedItem == null) 
+			{
+				room.RoomPrice = 0;
+			}
+			else 
+			{
+				room.RoomPrice = ((RoomDto)comboBox2.SelectedItem).RoomPrice;
+			}
 			OrderAddVM vm = new OrderAddVM()
 			{
 				UserId = _userId,
-				RoomType = comboBox1.Text,
-
+				RoomType = room.RoomType,
 				CheckInDate = dateTimePicker1.Value,
 				CheckOutDate = dateTimePicker2.Value,
-
-				OrderPrice = ((RoomDto)comboBox2.SelectedItem).RoomPrice
-				
-
-
+				OrderPrice = room.RoomPrice
 
 			};
-
-
-
-			OrderAddDto dto = vm.ToDto();
-			IOrderRepository repo = new SqlOrderRepository();
-			OrderService service2 = new OrderService(repo);
-			service2.Create(dto);
-
 
 			//驗證vm閃錯誤訊息
 			(bool isValid, List<ValidationResult> errors) validationResult = Validate(vm);
@@ -63,8 +68,10 @@ namespace Cats_Villa
 
 
 
-
-
+			OrderAddDto dto = vm.ToDto();
+			IOrderRepository repo = new SqlOrderRepository();
+			OrderService service2 = new OrderService(repo);
+			service2.Create(dto);
 
 			var frm = new FormMain(_userId);
 			frm.Owner = this;
@@ -79,19 +86,12 @@ namespace Cats_Villa
 			RoomService service = new RoomService(repo);
 
 			var rooms = service.Search(null,null, string.Empty, string.Empty, string.Empty, null);
-
-			//comboBox1.DataSource = rooms;
-
-
 			comboBox1.Items.AddRange(rooms.ToArray());
 			comboBox1.DisplayMember = "RoomType";
 
 			var roomPrice = service.Search(null,null, string.Empty, string.Empty, string.Empty, null);
 			comboBox2.Items.AddRange(roomPrice.ToArray());
-
-			//comboBox2.DataSource = roomPrice;
 			comboBox2.DisplayMember = "RoomPrice";
-
 
 		}
 

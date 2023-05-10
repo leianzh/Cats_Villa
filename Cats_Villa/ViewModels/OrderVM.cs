@@ -74,6 +74,7 @@ namespace Cats_Villa.ViewModels
 		//public DateTime OrderCreat_at { get; set; }
 		[Display(Name = "房間價格")]
 		[Required(ErrorMessage = "房間價格必填")]
+		[Range(770,2300)]
 		public int OrderPrice { get; set; }
 
 	}

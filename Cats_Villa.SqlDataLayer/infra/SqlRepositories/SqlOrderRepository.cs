@@ -19,10 +19,10 @@ namespace Cats_Villa.SqlDataLayer.infra.SqlRepositories
 
 			var parameters = SqlParameterBuilder.Create()
 				.AddNvarchar("@RoomType", 100, entity.RoomType)
-				.AddDateTime("CheckInDate",entity.CheckInDate)
-				.AddDateTime("CheckOutDate", entity.CheckOutDate)
-				.AddDateTime("OrderCreat_at", DateTime.Now)
-				.AddInt("OrderPrice",entity.OrderPrice)
+				.AddDateTime("@CheckInDate",entity.CheckInDate)
+				.AddDateTime("@CheckOutDate", entity.CheckOutDate)
+				.AddDateTime("@OrderCreat_at", DateTime.Now)
+				.AddInt("@OrderPrice",entity.OrderPrice)
 				.AddInt("@UserId", entity.UserId)
 				.Build();
 
