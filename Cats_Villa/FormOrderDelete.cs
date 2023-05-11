@@ -29,27 +29,22 @@ namespace Cats_Villa
 
 		private void btnEditOrder_Click(object sender, EventArgs e)
 		{
-			string roomType = txtRoomType.Text;
-			DateTime checkin;
-			if (DateTime.TryParse(txtCheckIn.Text, out checkin) == false)
+			RoomDto room = new RoomDto();
+			if (comboBox1.SelectedItem == null)
 			{
-				MessageBox.Show("請輸入正確的日期格式，例如：yyyy/MM/dd");
-				return;
+				room.RoomType = "";
 			}
-
-			DateTime checkout;
-			if (DateTime.TryParse(txtCheckOut.Text, out checkout) == false)
+			else
 			{
-				MessageBox.Show("請輸入正確的日期格式，例如：yyyy/MM/dd");
-				return;
+				room.RoomType = ((RoomDto)comboBox1.SelectedItem).RoomType;
 			}
 
 			OrderEditVM vm = new OrderEditVM()
 			{
 				Id = _orderId,
-				RoomType = roomType,
-				CheckInDate = checkin,
-				CheckOutDate = checkout
+				RoomType = room.RoomType,
+				CheckInDate = dateTimePicker1.Value,
+				CheckOutDate = dateTimePicker2.Value,
 			};
 			//驗證vm閃錯誤訊息
 			(bool isValid, List<ValidationResult> errors) validationResult = Validate(vm);
@@ -87,28 +82,48 @@ namespace Cats_Villa
 			MessageBox.Show("更新成功");
 
 		}
+		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+		{
+			DateTime checkInDate = dateTimePicker1.Value.Date;
+			DateTime checkOutDate = dateTimePicker2.Value.Date;
+
+			if (checkInDate < DateTime.Today)
+			{
+				MessageBox.Show("入住日期不能小於今天日期。", "日期錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				dateTimePicker1.Value = DateTime.Today;
+				return;
+			}
+
+			if (checkInDate < checkOutDate)
+			{
+				MessageBox.Show("入住日期不可以小於退房日期。", "日期錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				dateTimePicker1.Value = checkInDate;
+			}
+
+			dateTimePicker2.MinDate = dateTimePicker1.Value.AddDays(1);
+		}
 		private (bool isValid, List<ValidationResult> errors) Validate(OrderEditVM vm)
 		{
-			// 得知要驗證規則
+			
 			ValidationContext context = new ValidationContext(vm, null, null);
 
-			// 用來存放錯誤的集合,因為可能有零到多個錯誤
+			
 			List<ValidationResult> errors = new List<ValidationResult>();
 
 			// 驗證 model
-			bool validateAllProperties = true; // 是否驗證所有規則,而非只驗證Required規則
+			bool validateAllProperties = true; 
 			bool isValid = Validator.TryValidateObject(vm, context, errors, validateAllProperties);
 
 			return (isValid, errors);
 		}
 		private void DisplayErrors(List<ValidationResult> errors)
 		{
-			// 大小寫不同仍視為相同的key
+			
 			Dictionary<string, Control> map = new Dictionary<string, Control>(StringComparer.CurrentCultureIgnoreCase)
 			{
-				{"RoomType", txtRoomType},
-				{"CheckInDate", txtCheckIn},
-				{"CheckOutDate", txtCheckOut}
+				{"RoomType", comboBox1},
+				{"CheckInDate", dateTimePicker1},
+				{"CheckOutDate", dateTimePicker2}
 			};
 
 			this.errorProvider1.Clear();
@@ -131,9 +146,12 @@ namespace Cats_Villa
 			OrderEditDto dto = service.Get(this._orderId);
 			OrderEditVM vm = dto.ToViewModel();
 
-			txtRoomType.Text = vm.RoomType;
-			txtCheckIn.Text = vm.CheckInDate.ToString();
-			txtCheckOut.Text = vm.CheckOutDate.ToString();
+			IRoomRepository repo2 = new SqlRoomRepository();
+			RoomService service2 = new RoomService(repo2);
+
+			var rooms = service2.Search(null, null, string.Empty, string.Empty, string.Empty, null);
+			comboBox1.Items.AddRange(rooms.ToArray());
+			comboBox1.DisplayMember = "RoomType";
 
 
 		}
@@ -173,5 +191,7 @@ namespace Cats_Villa
 				owner.Display();
 			}
 		}
+
+		
 	}
 }
