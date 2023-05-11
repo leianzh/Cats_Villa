@@ -49,20 +49,20 @@
 			// menuStrip1
 			// 
 			this.menuStrip1.BackColor = System.Drawing.Color.DarkKhaki;
-			this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
 			this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.會員密碼更新ToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(986, 33);
+			this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+			this.menuStrip1.Size = new System.Drawing.Size(657, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
 			// 會員密碼更新ToolStripMenuItem
 			// 
 			this.會員密碼更新ToolStripMenuItem.Name = "會員密碼更新ToolStripMenuItem";
-			this.會員密碼更新ToolStripMenuItem.Size = new System.Drawing.Size(170, 27);
+			this.會員密碼更新ToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
 			this.會員密碼更新ToolStripMenuItem.Text = "會員帳號密碼更新";
 			// 
 			// label2
@@ -71,11 +71,10 @@
 			this.label2.BackColor = System.Drawing.Color.Wheat;
 			this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.label2.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label2.ForeColor = System.Drawing.Color.Black;
-			this.label2.Location = new System.Drawing.Point(638, 134);
-			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label2.ForeColor = System.Drawing.Color.DimGray;
+			this.label2.Location = new System.Drawing.Point(425, 89);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(112, 26);
+			this.label2.Size = new System.Drawing.Size(77, 18);
 			this.label2.TabIndex = 2;
 			this.label2.Text = "會員帳號";
 			// 
@@ -85,51 +84,48 @@
 			this.label3.BackColor = System.Drawing.Color.Wheat;
 			this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.label3.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label3.ForeColor = System.Drawing.Color.Black;
-			this.label3.Location = new System.Drawing.Point(638, 220);
-			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label3.ForeColor = System.Drawing.Color.DimGray;
+			this.label3.Location = new System.Drawing.Point(425, 147);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(112, 26);
+			this.label3.Size = new System.Drawing.Size(77, 18);
 			this.label3.TabIndex = 3;
 			this.label3.Text = "會員密碼";
 			// 
 			// txtAccount
 			// 
-			this.txtAccount.Location = new System.Drawing.Point(777, 131);
-			this.txtAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtAccount.Location = new System.Drawing.Point(518, 87);
 			this.txtAccount.Name = "txtAccount";
-			this.txtAccount.Size = new System.Drawing.Size(148, 29);
+			this.txtAccount.Size = new System.Drawing.Size(100, 22);
 			this.txtAccount.TabIndex = 0;
 			// 
 			// txtPassword
 			// 
-			this.txtPassword.Location = new System.Drawing.Point(777, 217);
-			this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtPassword.Location = new System.Drawing.Point(518, 145);
 			this.txtPassword.Name = "txtPassword";
-			this.txtPassword.Size = new System.Drawing.Size(148, 29);
+			this.txtPassword.Size = new System.Drawing.Size(100, 22);
 			this.txtPassword.TabIndex = 1;
 			// 
 			// btnUpdatePwd
 			// 
 			this.btnUpdatePwd.BackColor = System.Drawing.Color.DarkKhaki;
 			this.btnUpdatePwd.Font = new System.Drawing.Font("新細明體-ExtB", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.btnUpdatePwd.Location = new System.Drawing.Point(737, 428);
-			this.btnUpdatePwd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.btnUpdatePwd.ForeColor = System.Drawing.Color.White;
+			this.btnUpdatePwd.Location = new System.Drawing.Point(462, 285);
 			this.btnUpdatePwd.Name = "btnUpdatePwd";
-			this.btnUpdatePwd.Size = new System.Drawing.Size(198, 98);
+			this.btnUpdatePwd.Size = new System.Drawing.Size(161, 65);
 			this.btnUpdatePwd.TabIndex = 2;
-			this.btnUpdatePwd.Text = "更新密碼";
+			this.btnUpdatePwd.Text = "更新帳號密碼";
 			this.btnUpdatePwd.UseVisualStyleBackColor = false;
 			this.btnUpdatePwd.Click += new System.EventHandler(this.btnUpdatePwd_Click);
 			// 
 			// FormEditPwdUser
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Tan;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(986, 650);
+			this.ClientSize = new System.Drawing.Size(657, 433);
 			this.Controls.Add(this.btnUpdatePwd);
 			this.Controls.Add(this.txtPassword);
 			this.Controls.Add(this.txtAccount);
@@ -137,9 +133,8 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(1008, 706);
+			this.MaximumSize = new System.Drawing.Size(677, 484);
 			this.Name = "FormEditPwdUser";
 			this.Text = "會員密碼更新";
 			this.Load += new System.EventHandler(this.FormEditPwdUser_Load);
