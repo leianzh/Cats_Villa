@@ -15,13 +15,13 @@ using System.Xml.Linq;
 
 namespace Cats_Villa
 {
-	public partial class FormOrderEdit : Form
+	public partial class FormOrderEdit : Form,IGrid
 	{
 		private readonly int _userId;
 		private List<OrderVM> vm;
-		public FormOrderEdit(int userId)
+		public FormOrderEdit(int id)
 		{
-			_userId = userId;
+			this._userId = id;
 			InitializeComponent();
 		}
 
@@ -29,13 +29,15 @@ namespace Cats_Villa
 		{
 			Display();
 		}
-		private void Display() 
+		public void Display() 
 		{
 			IOrderRepository orderRepository = new SqlOrderRepository();
 			OrderService service = new OrderService(orderRepository);
-			vm = service.Search(null, null, null, null, null)
+			vm = service.Search(null, null, null, null, null,null)
 			   .Select(x => x.ToViewModel())
 			   .ToList();
+
+
 
 
 
@@ -48,15 +50,12 @@ namespace Cats_Villa
 
 			int Id = vm[e.RowIndex].Id;
 
-			var frm = new FormOrderEdit(_userId);
+			var frm = new FormOrderDelete(Id);
 			frm.Owner = this;
 			frm.ShowDialog();
 
 		}
 
-		private void btnEditOrder_Click(object sender, EventArgs e)
-		{
-			Display();
-		}
+		
 	}
 }

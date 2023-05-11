@@ -13,6 +13,6 @@ namespace Cats_Villa.SqlDataLayer.interfaces
 		void Update(OrderEntity entity);
 		void Delete(int orderId);
 		OrderEntity Get(int userId);
-		List<OrderEntity> Search(string roomType,int? orderPrice,DateTime? checkInDate, DateTime? checkOutDate, int? userId);
+		List<OrderEntity> Search(string roomType,int? orderPrice,DateTime? checkInDate, DateTime? checkOutDate, int? userId,int? orderId);
 	}
 }

@@ -13,8 +13,10 @@ namespace Cats_Villa.ViewModels
 	public class OrderVM
 	{
 		public int Id { get; set; }
+
+		[Display(Name = "使用者編號")]
 		public int UserId { get; set; }
-		public int RoomId { get; set; }
+		//public int RoomId { get; set; }
 
 		[Display(Name = "房間類型")]
 		[Required(ErrorMessage = "房型必填")]
@@ -43,7 +45,7 @@ namespace Cats_Villa.ViewModels
 			{
 				Id = dto.Id,
 				UserId = dto.UserId,
-				RoomId = dto.RoomId,
+				//RoomId = dto.RoomId,
 				RoomType = dto.RoomType,
 				CheckInDate = dto.CheckInDate,
 				CheckOutDate = dto.CheckOutDate,
@@ -54,6 +56,7 @@ namespace Cats_Villa.ViewModels
 	}
 	public class OrderAddVM
 	{
+
 		
 		public int UserId { get; set; }
 		//public int RoomId { get; set; }

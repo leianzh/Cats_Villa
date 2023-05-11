@@ -34,15 +34,16 @@ namespace Cats_Villa.SqlDataLayer.Services
 			_repo.Delete(orderId);
 		}
 
-		public List<OrderDto> Search(string roomType,int? orderPrice,DateTime? checkInDate,DateTime? checkOutDate, int? userId)
+		public List<OrderDto> Search(string roomType,int? orderPrice,DateTime? checkInDate,DateTime? checkOutDate, int? userId,int? orderId)
 		{
-			List<OrderEntity> data = _repo.Search(roomType, orderPrice,checkInDate, checkOutDate, userId);
+			List<OrderEntity> data = _repo.Search(roomType, orderPrice,checkInDate, checkOutDate, userId, orderId);
 			return data.Select(x => x.ToDto()).ToList();
 		}
 
 		public OrderEditDto Get(int userId)
 		{
-			return _repo.Get(userId).ToEditDto();
+			var entity = _repo.Get(userId);
+			return entity.ToEditDto();
 		}
 	}
 }

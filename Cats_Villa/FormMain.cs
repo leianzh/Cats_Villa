@@ -53,7 +53,7 @@ namespace Cats_Villa
 
 		private void btnSearchOrder_Click(object sender, EventArgs e)
 		{
-			//Display();
+			
 			var frm = new FormOrderEdit(_userID);
 			frm.Owner = this;
 			frm.ShowDialog();

@@ -1,4 +1,5 @@
 ﻿using Cats_Villa.SqlDataLayer.Core;
+using Cats_Villa.SqlDataLayer.Dtos;
 using Cats_Villa.SqlDataLayer.interfaces;
 using System;
 using System.Collections.Generic;
@@ -31,14 +32,14 @@ namespace Cats_Villa.SqlDataLayer.infra.SqlRepositories
 
 		public void Delete(int orderId)
 		{
-			string sql = "DELETE FROM Orders WHERE Id=" + orderId;
+			string sql = "DELETE FROM [Order] WHERE Id=" + orderId;
 
 			SqlDb.UpdateOrDelete(SqlDb.GetConnection, sql, null);
 		}
 
 		public OrderEntity Get(int userId)
 		{
-			string sql = "SELECT * FROM Order WHERE Id=" + userId;
+			string sql = "SELECT * FROM [Order] WHERE Id=" + userId;
 
 			Func<SqlDataReader, OrderEntity> funcAssembler = reader => {
 				int id = reader.GetInt32("Id", 0);
@@ -52,13 +53,12 @@ namespace Cats_Villa.SqlDataLayer.infra.SqlRepositories
 
 				return new OrderEntity(usersId, roomId, roomType, checkInDate, checkOutDate, orderCreat_at, orderPrice, id);
 			};
-
 			return SqlDb.Get<OrderEntity>(SqlDb.GetConnection, funcAssembler, sql, null);
 		}
 
 		
 
-		public List<OrderEntity> Search(string roomType,int? orderPrice, DateTime? checkInDate, DateTime? checkOutDate, int? userId)
+		public List<OrderEntity> Search(string roomType,int? orderPrice, DateTime? checkInDate, DateTime? checkOutDate, int? userId,int? orderId)
 		{
 			List<SqlParameter> parameters = new List<SqlParameter>();
 
@@ -92,9 +92,15 @@ namespace Cats_Villa.SqlDataLayer.infra.SqlRepositories
 				parameters.Add(new SqlParameter("@CheckOutDate", System.Data.SqlDbType.DateTime) { Value = checkOutDate });
 			}
 
-			if (userId.HasValue)
+			if (userId != null)
 			{
-				where += " AND id=" + userId.Value;
+				where += " AND UserId=@UserId";
+				parameters.Add(new SqlParameter("@UserId", System.Data.SqlDbType.Int) { Value = userId });
+			}
+
+			if (orderId.HasValue)
+			{
+				where += " AND id=" + orderId.Value;
 			}
 
 			where = string.IsNullOrEmpty(where) ? string.Empty : " WHERE " + where.Substring(5);
@@ -112,23 +118,28 @@ namespace Cats_Villa.SqlDataLayer.infra.SqlRepositories
 				DateTime orderCreat_at = (DateTime)reader.GetDateTime("OrderCreat_at");
 				int orderPrices = reader.GetInt32("OrderPrice", 0);
 
-				return new OrderEntity(usersId, roomId, roomType, checkInDates, checkOutDates, orderCreat_at, orderPrices, id);
+				return new OrderEntity(usersId, roomId, roomTypes, checkInDates, checkOutDates, orderCreat_at, orderPrices, id);
 			};
 
 			return SqlDb.Search(SqlDb.GetConnection, funcAssembler, sql, parameters.ToArray());
 		}
 
+		
+
 		public void Update(OrderEntity entity)
 		{
-			string sql = "UPDATE Order SET CheckInDate=@CheckInDate, CheckOutDate = @CheckOutDate WHERE Id=@UserId";
+			string sql = "UPDATE [Order] SET RoomType=@RoomType, CheckInDate=@CheckInDate, CheckOutDate = @CheckOutDate WHERE Id=@Id";
 
 			var parameters = SqlParameterBuilder.Create()
-				.AddInt("@UserId", entity.UserId)
-				.AddDateTime("CheckInDate", entity.CheckInDate)
-				.AddDateTime("CheckOutDate", entity.CheckOutDate)
+				.AddInt("@Id", entity.Id)
+				.AddNvarchar("@RoomType",100,entity.RoomType)
+				.AddDateTime("@CheckInDate", entity.CheckInDate)
+				.AddDateTime("@CheckOutDate", entity.CheckOutDate)
 				.Build();
 
 			SqlDb.UpdateOrDelete(SqlDb.GetConnection, sql, parameters);
 		}
+
+		
 	}
 }

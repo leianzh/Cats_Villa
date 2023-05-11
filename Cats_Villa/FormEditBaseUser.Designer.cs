@@ -44,7 +44,6 @@
 			this.txtCatGender = new System.Windows.Forms.TextBox();
 			this.txtCatName = new System.Windows.Forms.TextBox();
 			this.txtCatBirth = new System.Windows.Forms.TextBox();
-			this.btnDelete = new System.Windows.Forms.Button();
 			this.btnUpdate = new System.Windows.Forms.Button();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
 			this.menuStrip1.SuspendLayout();
@@ -137,7 +136,6 @@
 			this.txtUserName.Name = "txtUserName";
 			this.txtUserName.Size = new System.Drawing.Size(100, 22);
 			this.txtUserName.TabIndex = 8;
-			this.txtUserName.Text = "理恩";
 			// 
 			// txtCatBreed
 			// 
@@ -145,7 +143,6 @@
 			this.txtCatBreed.Name = "txtCatBreed";
 			this.txtCatBreed.Size = new System.Drawing.Size(100, 22);
 			this.txtCatBreed.TabIndex = 9;
-			this.txtCatBreed.Text = "mix";
 			// 
 			// txtUserPhone
 			// 
@@ -153,7 +150,6 @@
 			this.txtUserPhone.Name = "txtUserPhone";
 			this.txtUserPhone.Size = new System.Drawing.Size(100, 22);
 			this.txtUserPhone.TabIndex = 10;
-			this.txtUserPhone.Text = "0956321890";
 			// 
 			// txtCatGender
 			// 
@@ -161,7 +157,6 @@
 			this.txtCatGender.Name = "txtCatGender";
 			this.txtCatGender.Size = new System.Drawing.Size(100, 22);
 			this.txtCatGender.TabIndex = 11;
-			this.txtCatGender.Text = "female";
 			// 
 			// txtCatName
 			// 
@@ -169,7 +164,6 @@
 			this.txtCatName.Name = "txtCatName";
 			this.txtCatName.Size = new System.Drawing.Size(100, 22);
 			this.txtCatName.TabIndex = 12;
-			this.txtCatName.Text = "uhah";
 			// 
 			// txtCatBirth
 			// 
@@ -177,16 +171,6 @@
 			this.txtCatBirth.Name = "txtCatBirth";
 			this.txtCatBirth.Size = new System.Drawing.Size(100, 22);
 			this.txtCatBirth.TabIndex = 13;
-			this.txtCatBirth.Text = "2023-03-29";
-			// 
-			// btnDelete
-			// 
-			this.btnDelete.Location = new System.Drawing.Point(496, 325);
-			this.btnDelete.Name = "btnDelete";
-			this.btnDelete.Size = new System.Drawing.Size(75, 23);
-			this.btnDelete.TabIndex = 14;
-			this.btnDelete.Text = "刪除";
-			this.btnDelete.UseVisualStyleBackColor = true;
 			// 
 			// btnUpdate
 			// 
@@ -208,7 +192,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.btnUpdate);
-			this.Controls.Add(this.btnDelete);
 			this.Controls.Add(this.txtCatBirth);
 			this.Controls.Add(this.txtCatName);
 			this.Controls.Add(this.txtCatGender);
@@ -252,7 +235,6 @@
 		private System.Windows.Forms.TextBox txtCatGender;
 		private System.Windows.Forms.TextBox txtCatName;
 		private System.Windows.Forms.TextBox txtCatBirth;
-		private System.Windows.Forms.Button btnDelete;
 		private System.Windows.Forms.Button btnUpdate;
 		private System.Windows.Forms.ErrorProvider errorProvider1;
 	}

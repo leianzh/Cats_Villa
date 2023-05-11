@@ -75,7 +75,10 @@ namespace Cats_Villa
 
 			var frm = new FormMain(_userId);
 			frm.Owner = this;
+			MessageBox.Show("訂房成功");
+			this.Hide();
 			frm.ShowDialog();
+			
 			
 
 		}
@@ -98,21 +101,23 @@ namespace Cats_Villa
 		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
 		{
 
-			// 取得目前的入住日期和退房日期
 			DateTime checkInDate = dateTimePicker1.Value.Date;
 			DateTime checkOutDate = dateTimePicker2.Value.Date;
 
-			// 如果入住日期小於退房日期，就設定退房日期的最小值為入住日期
+			if (checkInDate < DateTime.Today)
+			{
+				MessageBox.Show("入住日期不能小於今天日期。", "日期錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				dateTimePicker1.Value = DateTime.Today;
+				return;
+			}
+
 			if (checkInDate < checkOutDate)
 			{
-				dateTimePicker2.MinDate = checkInDate;
+				MessageBox.Show("入住日期不可以小於退房日期。", "日期錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				dateTimePicker1.Value = checkOutDate;
 			}
-			else
-			{
-				// 如果入住日期大於或等於退房日期，就設定退房日期的最小值為入住日期加一天
-				dateTimePicker1.Value = checkOutDate.AddDays(-1);
-				dateTimePicker2.MinDate = checkOutDate;
-			}
+
+			dateTimePicker2.MinDate = dateTimePicker1.Value.AddDays(1);
 		}
 		private (bool isValid, List<ValidationResult> errors) Validate(OrderAddVM vm)
 		{
