@@ -101,6 +101,12 @@
     <Compile Include="FormOrderEdit.Designer.cs">
       <DependentUpon>FormOrderEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormOrderEditBack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderEditBack.Designer.cs">
+      <DependentUpon>FormOrderEditBack.cs</DependentUpon>
+    </Compile>
     <Compile Include="IGrid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +140,9 @@
     <EmbeddedResource Include="FormOrderEdit.resx">
       <DependentUpon>FormOrderEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOrderEditBack.resx">
+      <DependentUpon>FormOrderEditBack.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -142,6 +151,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -162,6 +172,11 @@
       <Name>Cats_Villa.SqlDataLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\main.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main1.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

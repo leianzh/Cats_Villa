@@ -58,5 +58,10 @@ namespace Cats_Villa
 			frm.Owner = this;
 			frm.ShowDialog();
 		}
+
+		private void FormMain_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

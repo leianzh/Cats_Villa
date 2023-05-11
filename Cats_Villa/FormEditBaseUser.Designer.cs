@@ -43,9 +43,9 @@
 			this.txtUserPhone = new System.Windows.Forms.TextBox();
 			this.txtCatGender = new System.Windows.Forms.TextBox();
 			this.txtCatName = new System.Windows.Forms.TextBox();
-			this.txtCatBirth = new System.Windows.Forms.TextBox();
 			this.btnUpdate = new System.Windows.Forms.Button();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
 			this.SuspendLayout();
@@ -165,13 +165,6 @@
 			this.txtCatName.Size = new System.Drawing.Size(100, 22);
 			this.txtCatName.TabIndex = 12;
 			// 
-			// txtCatBirth
-			// 
-			this.txtCatBirth.Location = new System.Drawing.Point(111, 230);
-			this.txtCatBirth.Name = "txtCatBirth";
-			this.txtCatBirth.Size = new System.Drawing.Size(100, 22);
-			this.txtCatBirth.TabIndex = 13;
-			// 
 			// btnUpdate
 			// 
 			this.btnUpdate.Location = new System.Drawing.Point(616, 325);
@@ -186,13 +179,21 @@
 			// 
 			this.errorProvider1.ContainerControl = this;
 			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.Location = new System.Drawing.Point(111, 233);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(125, 22);
+			this.dateTimePicker1.TabIndex = 16;
+			this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+			// 
 			// FormEditBaseUser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.dateTimePicker1);
 			this.Controls.Add(this.btnUpdate);
-			this.Controls.Add(this.txtCatBirth);
 			this.Controls.Add(this.txtCatName);
 			this.Controls.Add(this.txtCatGender);
 			this.Controls.Add(this.txtUserPhone);
@@ -234,8 +235,8 @@
 		private System.Windows.Forms.TextBox txtUserPhone;
 		private System.Windows.Forms.TextBox txtCatGender;
 		private System.Windows.Forms.TextBox txtCatName;
-		private System.Windows.Forms.TextBox txtCatBirth;
 		private System.Windows.Forms.Button btnUpdate;
 		private System.Windows.Forms.ErrorProvider errorProvider1;
+		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 	}
 }

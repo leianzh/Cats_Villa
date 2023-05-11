@@ -62,5 +62,12 @@ namespace Cats_Villa
 			frm.Owner = this;
 			frm.ShowDialog();
 		}
+
+		private void btnback_Click(object sender, EventArgs e)
+		{
+			var frm = new FormOrderEditBack();
+			frm.Owner = this;
+			frm.ShowDialog();
+		}
 	}
 }

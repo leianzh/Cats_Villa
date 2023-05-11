@@ -58,6 +58,8 @@ namespace Cats_Villa
 				MessageBox.Show("更新失敗，錯誤原因:" + ex.Message);
 				return;
 			}
+			
+			MessageBox.Show("會員密碼更新成功");
 			this.DialogResult = DialogResult.OK;
 		}
 		private (bool isValid, List<ValidationResult> errors) Validate(EditUserPasswordVM vm)

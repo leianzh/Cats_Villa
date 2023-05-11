@@ -34,83 +34,112 @@
 			this.btnPwdUpdate = new System.Windows.Forms.Button();
 			this.btnOrder = new System.Windows.Forms.Button();
 			this.btnSearchOrder = new System.Windows.Forms.Button();
+			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
 			// 
+			this.menuStrip1.BackColor = System.Drawing.Color.DarkGoldenrod;
 			this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.登出系統ToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-			this.menuStrip1.Size = new System.Drawing.Size(533, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(1037, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
 			// 登出系統ToolStripMenuItem
 			// 
 			this.登出系統ToolStripMenuItem.Name = "登出系統ToolStripMenuItem";
-			this.登出系統ToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
-			this.登出系統ToolStripMenuItem.Text = "登出系統";
+			this.登出系統ToolStripMenuItem.Size = new System.Drawing.Size(43, 22);
+			this.登出系統ToolStripMenuItem.Text = "登出";
 			this.登出系統ToolStripMenuItem.Click += new System.EventHandler(this.登出系統ToolStripMenuItem_Click);
 			// 
 			// btnUpdateUser
 			// 
-			this.btnUpdateUser.Location = new System.Drawing.Point(26, 102);
+			this.btnUpdateUser.BackColor = System.Drawing.Color.DarkKhaki;
+			this.btnUpdateUser.Font = new System.Drawing.Font("新細明體-ExtB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.btnUpdateUser.Location = new System.Drawing.Point(38, 185);
 			this.btnUpdateUser.Name = "btnUpdateUser";
-			this.btnUpdateUser.Size = new System.Drawing.Size(93, 23);
+			this.btnUpdateUser.Size = new System.Drawing.Size(149, 79);
 			this.btnUpdateUser.TabIndex = 1;
 			this.btnUpdateUser.Text = "會員資料更新";
-			this.btnUpdateUser.UseVisualStyleBackColor = true;
+			this.btnUpdateUser.UseVisualStyleBackColor = false;
 			this.btnUpdateUser.Click += new System.EventHandler(this.btnUpdateUser_Click);
 			// 
 			// btnPwdUpdate
 			// 
-			this.btnPwdUpdate.Location = new System.Drawing.Point(139, 101);
+			this.btnPwdUpdate.BackColor = System.Drawing.Color.DarkKhaki;
+			this.btnPwdUpdate.Font = new System.Drawing.Font("新細明體-ExtB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.btnPwdUpdate.Location = new System.Drawing.Point(214, 185);
 			this.btnPwdUpdate.Name = "btnPwdUpdate";
-			this.btnPwdUpdate.Size = new System.Drawing.Size(90, 23);
+			this.btnPwdUpdate.Size = new System.Drawing.Size(149, 79);
 			this.btnPwdUpdate.TabIndex = 2;
 			this.btnPwdUpdate.Text = "會員密碼更新";
-			this.btnPwdUpdate.UseVisualStyleBackColor = true;
+			this.btnPwdUpdate.UseVisualStyleBackColor = false;
 			this.btnPwdUpdate.Click += new System.EventHandler(this.btnPwdUpdate_Click);
 			// 
 			// btnOrder
 			// 
-			this.btnOrder.Location = new System.Drawing.Point(267, 101);
+			this.btnOrder.BackColor = System.Drawing.Color.DarkKhaki;
+			this.btnOrder.Font = new System.Drawing.Font("新細明體-ExtB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.btnOrder.Location = new System.Drawing.Point(389, 185);
 			this.btnOrder.Name = "btnOrder";
-			this.btnOrder.Size = new System.Drawing.Size(75, 23);
+			this.btnOrder.Size = new System.Drawing.Size(149, 79);
 			this.btnOrder.TabIndex = 3;
 			this.btnOrder.Text = "線上訂房";
-			this.btnOrder.UseVisualStyleBackColor = true;
+			this.btnOrder.UseVisualStyleBackColor = false;
 			this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
 			// 
 			// btnSearchOrder
 			// 
-			this.btnSearchOrder.Location = new System.Drawing.Point(383, 101);
+			this.btnSearchOrder.BackColor = System.Drawing.Color.DarkKhaki;
+			this.btnSearchOrder.Font = new System.Drawing.Font("新細明體-ExtB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.btnSearchOrder.Location = new System.Drawing.Point(565, 185);
 			this.btnSearchOrder.Name = "btnSearchOrder";
-			this.btnSearchOrder.Size = new System.Drawing.Size(91, 23);
+			this.btnSearchOrder.Size = new System.Drawing.Size(149, 79);
 			this.btnSearchOrder.TabIndex = 4;
 			this.btnSearchOrder.Text = "查詢訂房紀錄";
-			this.btnSearchOrder.UseVisualStyleBackColor = true;
+			this.btnSearchOrder.UseVisualStyleBackColor = false;
 			this.btnSearchOrder.Click += new System.EventHandler(this.btnSearchOrder_Click);
+			// 
+			// textBox1
+			// 
+			this.textBox1.BackColor = System.Drawing.Color.DarkGray;
+			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.textBox1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.textBox1.ForeColor = System.Drawing.Color.White;
+			this.textBox1.Location = new System.Drawing.Point(38, 37);
+			this.textBox1.Multiline = true;
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(95, 24);
+			this.textBox1.TabIndex = 5;
+			this.textBox1.Text = "蚵仔貓咪旅館";
 			// 
 			// FormMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(533, 300);
+			this.BackColor = System.Drawing.Color.DarkKhaki;
+			this.BackgroundImage = global::Cats_Villa.Properties.Resources.main1;
+			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ClientSize = new System.Drawing.Size(1037, 606);
+			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.btnSearchOrder);
 			this.Controls.Add(this.btnOrder);
 			this.Controls.Add(this.btnPwdUpdate);
 			this.Controls.Add(this.btnUpdateUser);
 			this.Controls.Add(this.menuStrip1);
+			this.ForeColor = System.Drawing.Color.Snow;
 			this.MainMenuStrip = this.menuStrip1;
 			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "FormMain";
-			this.Text = "FormMain";
+			this.Text = "蚵仔貓咪旅館";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
+			this.Load += new System.EventHandler(this.FormMain_Load);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
@@ -126,5 +155,6 @@
 		private System.Windows.Forms.Button btnPwdUpdate;
 		private System.Windows.Forms.Button btnOrder;
 		private System.Windows.Forms.Button btnSearchOrder;
+		private System.Windows.Forms.TextBox textBox1;
 	}
 }

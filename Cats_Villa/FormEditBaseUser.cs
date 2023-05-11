@@ -30,7 +30,7 @@ namespace Cats_Villa
 		{
 			string userName = txtUserName.Text;
 			string catName = txtCatName.Text;
-			DateTime catBirth = DateTime.Parse(txtCatBirth.Text);
+			DateTime catBirth = dateTimePicker1.Value.Date;
 			string catGender = txtCatGender.Text;
 			string catBreed = txtCatBreed.Text;
 			string phone = txtUserPhone.Text;
@@ -67,15 +67,9 @@ namespace Cats_Villa
 				MessageBox.Show("更新失敗，錯誤原因:" + ex.Message);
 				return;
 			}
-			//IGrid owner = this.Owner as IGrid;
-			//if (owner == null) 
-			//{
-			//	MessageBox.Show("忘了把owner實作IGrid");
-			//}
-			//else 
-			//{
-			//	owner.Display();
-			//}
+			
+
+			MessageBox.Show("會員資料更新成功");
 			this.DialogResult = DialogResult.OK;
 
 		}
@@ -100,7 +94,7 @@ namespace Cats_Villa
 			{
 				{"UserName", txtUserName},
 				{"CatName", txtCatName},
-				{"CatBirth",txtCatBirth},
+				{"CatBirth",dateTimePicker1},
 				{"CatGender", txtCatGender},
 				{"CatBreed", txtCatBreed},
 				{"Phone", txtUserPhone},
@@ -129,10 +123,23 @@ namespace Cats_Villa
 
 			txtUserName.Text = vm.UserName;
 			txtCatName.Text = vm.CatName;
-			txtCatBirth.Text = vm.CatBirth.ToString();
+			dateTimePicker1.Text = vm.CatBirth.ToString();
 			txtCatGender.Text = vm.CatGender;
 			txtCatBreed.Text = vm.CatBreed;
 			txtUserPhone.Text = vm.Phone;
+		}
+
+		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+		{
+			DateTime catBirth = dateTimePicker1.Value.Date;
+
+
+			if (catBirth > DateTime.Today)
+			{
+				MessageBox.Show("貓咪生日不能大於今天日期。", "日期錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				dateTimePicker1.Value = DateTime.Today;
+				return;
+			}
 		}
 	}
 }

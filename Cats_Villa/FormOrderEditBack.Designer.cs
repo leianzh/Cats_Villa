@@ -1,6 +1,6 @@
 ﻿namespace Cats_Villa
 {
-	partial class FormOrderEdit
+	partial class FormOrderEditBack
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -31,11 +31,11 @@
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -50,17 +50,17 @@
 			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
+            this.Column3,
             this.Column4,
             this.Column5,
             this.Column6,
-            this.Column7,
-            this.Column8});
-			this.dataGridView1.Location = new System.Drawing.Point(25, 24);
-			this.dataGridView1.MinimumSize = new System.Drawing.Size(836, 351);
+            this.Column7});
+			this.dataGridView1.Location = new System.Drawing.Point(25, 33);
+			this.dataGridView1.MinimumSize = new System.Drawing.Size(970, 464);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
 			this.dataGridView1.RowTemplate.Height = 24;
-			this.dataGridView1.Size = new System.Drawing.Size(836, 351);
+			this.dataGridView1.Size = new System.Drawing.Size(970, 464);
 			this.dataGridView1.TabIndex = 0;
 			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
 			// 
@@ -74,58 +74,55 @@
 			// Column2
 			// 
 			this.Column2.DataPropertyName = "UserId";
-			this.Column2.HeaderText = "使用者編號";
+			this.Column2.HeaderText = "會員編號";
 			this.Column2.Name = "Column2";
 			this.Column2.ReadOnly = true;
 			// 
+			// Column3
+			// 
+			this.Column3.DataPropertyName = "RoomType";
+			this.Column3.HeaderText = "房型";
+			this.Column3.Name = "Column3";
+			this.Column3.ReadOnly = true;
+			// 
 			// Column4
 			// 
-			this.Column4.DataPropertyName = "RoomType";
-			this.Column4.HeaderText = "房型";
+			this.Column4.DataPropertyName = "CheckInDate";
+			this.Column4.HeaderText = "入住日期";
 			this.Column4.Name = "Column4";
 			this.Column4.ReadOnly = true;
 			// 
 			// Column5
 			// 
-			this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.Column5.DataPropertyName = "CheckInDate";
-			this.Column5.HeaderText = "入住日期";
+			this.Column5.DataPropertyName = "CheckOutDate";
+			this.Column5.HeaderText = "退房日期";
 			this.Column5.Name = "Column5";
 			this.Column5.ReadOnly = true;
 			// 
 			// Column6
 			// 
-			this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.Column6.DataPropertyName = "CheckOutDate";
-			this.Column6.HeaderText = "退房日期";
+			this.Column6.DataPropertyName = "OrderCreat_at";
+			this.Column6.HeaderText = "訂單成立日期";
 			this.Column6.Name = "Column6";
 			this.Column6.ReadOnly = true;
 			// 
 			// Column7
 			// 
-			this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.Column7.DataPropertyName = "OrderCreat_at";
-			this.Column7.HeaderText = "訂單成立時間";
+			this.Column7.DataPropertyName = "OrderPrice";
+			this.Column7.HeaderText = "訂單價格";
 			this.Column7.Name = "Column7";
 			this.Column7.ReadOnly = true;
 			// 
-			// Column8
-			// 
-			this.Column8.DataPropertyName = "OrderPrice";
-			this.Column8.HeaderText = "訂單價格";
-			this.Column8.Name = "Column8";
-			this.Column8.ReadOnly = true;
-			// 
-			// FormOrderEdit
+			// FormOrderEditBack
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(889, 457);
+			this.ClientSize = new System.Drawing.Size(1037, 561);
 			this.Controls.Add(this.dataGridView1);
-			this.MinimumSize = new System.Drawing.Size(905, 496);
-			this.Name = "FormOrderEdit";
-			this.Text = "FormOrderEdit";
-			this.Load += new System.EventHandler(this.FormOrderEdit_Load);
+			this.MinimumSize = new System.Drawing.Size(1053, 600);
+			this.Name = "FormOrderEditBack";
+			this.Text = "FormOrderEditBack";
+			this.Load += new System.EventHandler(this.FormOrderEditBack_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 
@@ -136,10 +133,10 @@
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
 	}
 }

@@ -114,7 +114,7 @@ namespace Cats_Villa
 			if (checkInDate < checkOutDate)
 			{
 				MessageBox.Show("入住日期不可以小於退房日期。", "日期錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				dateTimePicker1.Value = checkOutDate;
+				dateTimePicker1.Value = checkInDate;
 			}
 
 			dateTimePicker2.MinDate = dateTimePicker1.Value.AddDays(1);
