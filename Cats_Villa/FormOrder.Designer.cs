@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrder));
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.訂房資訊ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.btnOrder = new System.Windows.Forms.Button();
@@ -47,63 +48,82 @@
 			// 
 			// menuStrip1
 			// 
+			this.menuStrip1.BackColor = System.Drawing.Color.DarkKhaki;
+			this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+			this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.訂房資訊ToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(1426, 33);
 			this.menuStrip1.TabIndex = 1;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
 			// 訂房資訊ToolStripMenuItem
 			// 
 			this.訂房資訊ToolStripMenuItem.Name = "訂房資訊ToolStripMenuItem";
-			this.訂房資訊ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+			this.訂房資訊ToolStripMenuItem.Size = new System.Drawing.Size(98, 27);
 			this.訂房資訊ToolStripMenuItem.Text = "訂房資訊";
 			// 
 			// btnOrder
 			// 
-			this.btnOrder.Location = new System.Drawing.Point(626, 386);
+			this.btnOrder.BackColor = System.Drawing.Color.DarkKhaki;
+			this.btnOrder.Font = new System.Drawing.Font("新細明體-ExtB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.btnOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btnOrder.Location = new System.Drawing.Point(1196, 511);
+			this.btnOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.btnOrder.Name = "btnOrder";
-			this.btnOrder.Size = new System.Drawing.Size(75, 23);
-			this.btnOrder.TabIndex = 2;
+			this.btnOrder.Size = new System.Drawing.Size(196, 98);
+			this.btnOrder.TabIndex = 4;
 			this.btnOrder.Text = "確定訂房";
-			this.btnOrder.UseVisualStyleBackColor = true;
+			this.btnOrder.UseVisualStyleBackColor = false;
 			this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(28, 71);
+			this.label1.BackColor = System.Drawing.Color.SeaShell;
+			this.label1.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.label1.Location = new System.Drawing.Point(1030, 103);
+			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(29, 12);
+			this.label1.Size = new System.Drawing.Size(60, 24);
 			this.label1.TabIndex = 3;
 			this.label1.Text = "房型";
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(28, 116);
+			this.label2.BackColor = System.Drawing.Color.SeaShell;
+			this.label2.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.label2.Location = new System.Drawing.Point(1030, 185);
+			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(53, 12);
+			this.label2.Size = new System.Drawing.Size(110, 24);
 			this.label2.TabIndex = 4;
 			this.label2.Text = "入住日期";
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(28, 174);
+			this.label3.BackColor = System.Drawing.Color.SeaShell;
+			this.label3.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.label3.Location = new System.Drawing.Point(1030, 269);
+			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(53, 12);
+			this.label3.Size = new System.Drawing.Size(110, 24);
 			this.label3.TabIndex = 5;
 			this.label3.Text = "退房日期";
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(28, 227);
+			this.label4.BackColor = System.Drawing.Color.SeaShell;
+			this.label4.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.label4.Location = new System.Drawing.Point(1030, 360);
+			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(29, 12);
+			this.label4.Size = new System.Drawing.Size(60, 24);
 			this.label4.TabIndex = 6;
 			this.label4.Text = "價格";
 			// 
@@ -111,34 +131,40 @@
 			// 
 			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(87, 71);
+			this.comboBox1.Location = new System.Drawing.Point(1148, 103);
+			this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(121, 20);
-			this.comboBox1.TabIndex = 7;
+			this.comboBox1.Size = new System.Drawing.Size(180, 26);
+			this.comboBox1.TabIndex = 0;
+			this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
 			// 
 			// dateTimePicker1
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(87, 109);
+			this.dateTimePicker1.Location = new System.Drawing.Point(1148, 185);
+			this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-			this.dateTimePicker1.TabIndex = 8;
+			this.dateTimePicker1.Size = new System.Drawing.Size(216, 29);
+			this.dateTimePicker1.TabIndex = 1;
 			this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
 			// 
 			// dateTimePicker2
 			// 
-			this.dateTimePicker2.Location = new System.Drawing.Point(87, 167);
+			this.dateTimePicker2.Location = new System.Drawing.Point(1148, 267);
+			this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.dateTimePicker2.Name = "dateTimePicker2";
-			this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-			this.dateTimePicker2.TabIndex = 9;
+			this.dateTimePicker2.Size = new System.Drawing.Size(216, 29);
+			this.dateTimePicker2.TabIndex = 2;
 			// 
 			// comboBox2
 			// 
 			this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBox2.Enabled = false;
 			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(87, 227);
+			this.comboBox2.Location = new System.Drawing.Point(1148, 362);
+			this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.comboBox2.Name = "comboBox2";
-			this.comboBox2.Size = new System.Drawing.Size(121, 20);
-			this.comboBox2.TabIndex = 10;
+			this.comboBox2.Size = new System.Drawing.Size(180, 26);
+			this.comboBox2.TabIndex = 3;
 			// 
 			// errorProvider1
 			// 
@@ -146,9 +172,11 @@
 			// 
 			// FormOrder
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.ClientSize = new System.Drawing.Size(1426, 751);
 			this.Controls.Add(this.comboBox2);
 			this.Controls.Add(this.dateTimePicker2);
 			this.Controls.Add(this.dateTimePicker1);
@@ -160,8 +188,11 @@
 			this.Controls.Add(this.btnOrder);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
+			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.MaximumSize = new System.Drawing.Size(1448, 807);
+			this.MinimumSize = new System.Drawing.Size(1448, 807);
 			this.Name = "FormOrder";
-			this.Text = "FormOrder";
+			this.Text = "訂房資訊";
 			this.Load += new System.EventHandler(this.FormOrder_Load);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();

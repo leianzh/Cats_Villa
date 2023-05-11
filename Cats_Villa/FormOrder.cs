@@ -29,31 +29,14 @@ namespace Cats_Villa
 
 		private void btnOrder_Click(object sender, EventArgs e)
 		{
-			RoomDto room = new RoomDto();
 			
-			if(comboBox1.SelectedItem == null) 
-			{
-				room.RoomType="";
-			}
-			else 
-			{
-				room.RoomType = ((RoomDto)comboBox1.SelectedItem).RoomType;
-			}
-			if(comboBox2.SelectedItem == null) 
-			{
-				room.RoomPrice = 0;
-			}
-			else 
-			{
-				room.RoomPrice = ((RoomDto)comboBox2.SelectedItem).RoomPrice;
-			}
 			OrderAddVM vm = new OrderAddVM()
 			{
 				UserId = _userId,
-				RoomType = room.RoomType,
+				RoomType = ((RoomDto)comboBox1.SelectedItem).RoomType,
 				CheckInDate = dateTimePicker1.Value,
 				CheckOutDate = dateTimePicker2.Value,
-				OrderPrice = room.RoomPrice
+				OrderPrice = ((RoomDto)comboBox2.SelectedItem).RoomPrice
 
 			};
 
@@ -96,6 +79,9 @@ namespace Cats_Villa
 			comboBox2.Items.AddRange(roomPrice.ToArray());
 			comboBox2.DisplayMember = "RoomPrice";
 
+			dateTimePicker1.Value = DateTime.Now;
+			//dateTimePicker2.MinDate = dateTimePicker1.Value.AddDays(1);
+
 		}
 
 		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -107,14 +93,14 @@ namespace Cats_Villa
 			if (checkInDate < DateTime.Today)
 			{
 				MessageBox.Show("入住日期不能小於今天日期。", "日期錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				dateTimePicker1.Value = DateTime.Today;
+				dateTimePicker1.Value = DateTime.Now;
 				return;
 			}
 
-			if (checkInDate < checkOutDate)
+			if (checkInDate > checkOutDate)
 			{
-				MessageBox.Show("入住日期不可以小於退房日期。", "日期錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				dateTimePicker1.Value = checkInDate;
+				MessageBox.Show("入住日期不可以晚於退房日期。", "日期錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
 			}
 
 			dateTimePicker2.MinDate = dateTimePicker1.Value.AddDays(1);
@@ -154,6 +140,20 @@ namespace Cats_Villa
 					this.errorProvider1.SetError(ctrl, error.ErrorMessage);
 				}
 			}
+		}
+
+		private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
+		{
+			if(comboBox1.SelectedItem != null) 
+			{
+				string roomType = ((RoomDto)comboBox1.SelectedItem).RoomType;
+				if (!String.IsNullOrEmpty(roomType))
+				{
+					comboBox2.SelectedIndex = comboBox1.SelectedIndex;
+				}
+
+			}
+			
 		}
 	}
 }

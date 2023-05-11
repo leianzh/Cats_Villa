@@ -90,13 +90,13 @@ namespace Cats_Villa
 			if (checkInDate < DateTime.Today)
 			{
 				MessageBox.Show("入住日期不能小於今天日期。", "日期錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				dateTimePicker1.Value = DateTime.Today;
+				dateTimePicker1.Value = DateTime.Now;
 				return;
 			}
 
-			if (checkInDate < checkOutDate)
+			if (checkInDate > checkOutDate)
 			{
-				MessageBox.Show("入住日期不可以小於退房日期。", "日期錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("入住日期不可以晚於退房日期。", "日期錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				dateTimePicker1.Value = checkInDate;
 			}
 
@@ -191,7 +191,5 @@ namespace Cats_Villa
 				owner.Display();
 			}
 		}
-
-		
 	}
 }
