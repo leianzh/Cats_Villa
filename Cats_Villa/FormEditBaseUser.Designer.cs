@@ -47,8 +47,10 @@
 			this.btnUpdate = new System.Windows.Forms.Button();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -77,7 +79,7 @@
 			this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.label1.Font = new System.Drawing.Font("新細明體-ExtB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label1.ForeColor = System.Drawing.Color.DimGray;
-			this.label1.Location = new System.Drawing.Point(51, 59);
+			this.label1.Location = new System.Drawing.Point(51, 60);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(171, 21);
 			this.label1.TabIndex = 1;
@@ -89,7 +91,7 @@
 			this.label2.BackColor = System.Drawing.Color.Beige;
 			this.label2.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label2.ForeColor = System.Drawing.Color.DimGray;
-			this.label2.Location = new System.Drawing.Point(51, 139);
+			this.label2.Location = new System.Drawing.Point(39, 18);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(75, 16);
 			this.label2.TabIndex = 2;
@@ -101,7 +103,7 @@
 			this.label3.BackColor = System.Drawing.Color.Beige;
 			this.label3.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label3.ForeColor = System.Drawing.Color.DimGray;
-			this.label3.Location = new System.Drawing.Point(51, 190);
+			this.label3.Location = new System.Drawing.Point(39, 69);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(75, 16);
 			this.label3.TabIndex = 3;
@@ -113,7 +115,7 @@
 			this.label4.BackColor = System.Drawing.Color.Beige;
 			this.label4.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label4.ForeColor = System.Drawing.Color.DimGray;
-			this.label4.Location = new System.Drawing.Point(51, 337);
+			this.label4.Location = new System.Drawing.Point(39, 216);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(75, 16);
 			this.label4.TabIndex = 4;
@@ -125,7 +127,7 @@
 			this.label5.BackColor = System.Drawing.Color.Beige;
 			this.label5.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label5.ForeColor = System.Drawing.Color.DimGray;
-			this.label5.Location = new System.Drawing.Point(51, 233);
+			this.label5.Location = new System.Drawing.Point(39, 112);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(75, 16);
 			this.label5.TabIndex = 5;
@@ -137,7 +139,7 @@
 			this.label6.BackColor = System.Drawing.Color.Beige;
 			this.label6.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label6.ForeColor = System.Drawing.Color.DimGray;
-			this.label6.Location = new System.Drawing.Point(51, 282);
+			this.label6.Location = new System.Drawing.Point(39, 161);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(75, 16);
 			this.label6.TabIndex = 6;
@@ -149,7 +151,7 @@
 			this.label7.BackColor = System.Drawing.Color.Beige;
 			this.label7.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label7.ForeColor = System.Drawing.Color.DimGray;
-			this.label7.Location = new System.Drawing.Point(359, 139);
+			this.label7.Location = new System.Drawing.Point(256, 21);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(75, 16);
 			this.label7.TabIndex = 7;
@@ -157,35 +159,35 @@
 			// 
 			// txtUserName
 			// 
-			this.txtUserName.Location = new System.Drawing.Point(142, 136);
+			this.txtUserName.Location = new System.Drawing.Point(130, 15);
 			this.txtUserName.Name = "txtUserName";
 			this.txtUserName.Size = new System.Drawing.Size(100, 22);
 			this.txtUserName.TabIndex = 0;
 			// 
 			// txtCatBreed
 			// 
-			this.txtCatBreed.Location = new System.Drawing.Point(142, 334);
+			this.txtCatBreed.Location = new System.Drawing.Point(130, 213);
 			this.txtCatBreed.Name = "txtCatBreed";
 			this.txtCatBreed.Size = new System.Drawing.Size(100, 22);
 			this.txtCatBreed.TabIndex = 4;
 			// 
 			// txtUserPhone
 			// 
-			this.txtUserPhone.Location = new System.Drawing.Point(449, 137);
+			this.txtUserPhone.Location = new System.Drawing.Point(350, 21);
 			this.txtUserPhone.Name = "txtUserPhone";
 			this.txtUserPhone.Size = new System.Drawing.Size(100, 22);
 			this.txtUserPhone.TabIndex = 5;
 			// 
 			// txtCatGender
 			// 
-			this.txtCatGender.Location = new System.Drawing.Point(142, 279);
+			this.txtCatGender.Location = new System.Drawing.Point(130, 158);
 			this.txtCatGender.Name = "txtCatGender";
 			this.txtCatGender.Size = new System.Drawing.Size(100, 22);
 			this.txtCatGender.TabIndex = 3;
 			// 
 			// txtCatName
 			// 
-			this.txtCatName.Location = new System.Drawing.Point(142, 187);
+			this.txtCatName.Location = new System.Drawing.Point(130, 66);
 			this.txtCatName.Name = "txtCatName";
 			this.txtCatName.Size = new System.Drawing.Size(100, 22);
 			this.txtCatName.TabIndex = 1;
@@ -195,7 +197,7 @@
 			this.btnUpdate.BackColor = System.Drawing.Color.Beige;
 			this.btnUpdate.Font = new System.Drawing.Font("新細明體-ExtB", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.btnUpdate.ForeColor = System.Drawing.Color.DimGray;
-			this.btnUpdate.Location = new System.Drawing.Point(416, 282);
+			this.btnUpdate.Location = new System.Drawing.Point(590, 372);
 			this.btnUpdate.Name = "btnUpdate";
 			this.btnUpdate.Size = new System.Drawing.Size(132, 42);
 			this.btnUpdate.TabIndex = 6;
@@ -209,11 +211,35 @@
 			// 
 			// dateTimePicker1
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(142, 233);
+			this.dateTimePicker1.Location = new System.Drawing.Point(130, 112);
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(125, 22);
 			this.dateTimePicker1.TabIndex = 2;
 			this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.BackColor = System.Drawing.Color.DarkKhaki;
+			this.groupBox1.Controls.Add(this.label2);
+			this.groupBox1.Controls.Add(this.dateTimePicker1);
+			this.groupBox1.Controls.Add(this.txtUserPhone);
+			this.groupBox1.Controls.Add(this.label3);
+			this.groupBox1.Controls.Add(this.label7);
+			this.groupBox1.Controls.Add(this.label4);
+			this.groupBox1.Controls.Add(this.txtCatName);
+			this.groupBox1.Controls.Add(this.label5);
+			this.groupBox1.Controls.Add(this.txtCatGender);
+			this.groupBox1.Controls.Add(this.label6);
+			this.groupBox1.Controls.Add(this.txtUserName);
+			this.groupBox1.Controls.Add(this.txtCatBreed);
+			this.groupBox1.Font = new System.Drawing.Font("新細明體-ExtB", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.groupBox1.ForeColor = System.Drawing.Color.Black;
+			this.groupBox1.Location = new System.Drawing.Point(51, 109);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(533, 276);
+			this.groupBox1.TabIndex = 8;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "會員基本資料更新";
 			// 
 			// FormEditBaseUser
 			// 
@@ -222,19 +248,8 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.dateTimePicker1);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.btnUpdate);
-			this.Controls.Add(this.txtCatName);
-			this.Controls.Add(this.txtCatGender);
-			this.Controls.Add(this.txtUserPhone);
-			this.Controls.Add(this.txtCatBreed);
-			this.Controls.Add(this.txtUserName);
-			this.Controls.Add(this.label7);
-			this.Controls.Add(this.label6);
-			this.Controls.Add(this.label5);
-			this.Controls.Add(this.label4);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
@@ -246,6 +261,8 @@
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -270,5 +287,6 @@
 		private System.Windows.Forms.Button btnUpdate;
 		private System.Windows.Forms.ErrorProvider errorProvider1;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.GroupBox groupBox1;
 	}
 }

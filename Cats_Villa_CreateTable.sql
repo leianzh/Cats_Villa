@@ -75,7 +75,7 @@ select * from Room;
 
 select * from [Order];
 
-SELECT * FROM [Order]
+SELECT * FROM Users
 
 UPDATE Room SET RoomType = '森林房',Title = ' ' WHERE Id = 3;
 

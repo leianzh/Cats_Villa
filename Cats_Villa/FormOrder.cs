@@ -29,14 +29,32 @@ namespace Cats_Villa
 
 		private void btnOrder_Click(object sender, EventArgs e)
 		{
-			
+			RoomDto room = new RoomDto();
+
+			if (comboBox1.SelectedItem == null)
+			{
+				room.RoomType = "";
+			}
+			else
+			{
+				room.RoomType = ((RoomDto)comboBox1.SelectedItem).RoomType;
+			}
+			if (comboBox2.SelectedItem == null)
+			{
+				room.RoomPrice = 0;
+			}
+			else
+			{
+				room.RoomPrice = ((RoomDto)comboBox2.SelectedItem).RoomPrice;
+			}
+
 			OrderAddVM vm = new OrderAddVM()
 			{
 				UserId = _userId,
-				RoomType = ((RoomDto)comboBox1.SelectedItem).RoomType,
+				RoomType = room.RoomType,
 				CheckInDate = dateTimePicker1.Value,
 				CheckOutDate = dateTimePicker2.Value,
-				OrderPrice = ((RoomDto)comboBox2.SelectedItem).RoomPrice
+				OrderPrice = room.RoomPrice
 
 			};
 
@@ -56,13 +74,10 @@ namespace Cats_Villa
 			OrderService service2 = new OrderService(repo);
 			service2.Create(dto);
 
-			var frm = new FormMain(_userId);
-			frm.Owner = this;
 			MessageBox.Show("訂房成功");
-			this.Hide();
-			frm.ShowDialog();
-			
-			
+			this.DialogResult = DialogResult.OK;
+
+
 
 		}
 
@@ -80,7 +95,7 @@ namespace Cats_Villa
 			comboBox2.DisplayMember = "RoomPrice";
 
 			dateTimePicker1.Value = DateTime.Now;
-			//dateTimePicker2.MinDate = dateTimePicker1.Value.AddDays(1);
+			
 
 		}
 

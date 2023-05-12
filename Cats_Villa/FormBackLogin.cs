@@ -1,7 +1,6 @@
 ﻿using Cats_Villa.SqlDataLayer.infra.SqlRepositories;
 using Cats_Villa.SqlDataLayer.interfaces;
 using Cats_Villa.SqlDataLayer.Services;
-using Cats_Villa.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,14 +13,14 @@ using System.Windows.Forms;
 
 namespace Cats_Villa
 {
-	public partial class FormLogin : Form
+	public partial class FormBackLogin : Form
 	{
-		public FormLogin()
+		public FormBackLogin()
 		{
 			InitializeComponent();
 		}
 
-		private void btnLogin_Click(object sender, EventArgs e)
+		private void button1_Click(object sender, EventArgs e)
 		{
 			IUserRepository userRepository = new SqlUserRepository();
 			UserService service = new UserService(userRepository);
@@ -35,19 +34,19 @@ namespace Cats_Villa
 					return;
 				}
 				User user = service.GetByAccount(txtAccount.Text);
-				
+
 
 				txtAccount.Text = string.Empty;
 				txtPassword.Text = string.Empty;
 
 
-
-				var frm = new FormMain(user.Id);
+				var frm = new FormOrderEditBack();
 				frm.Owner = this;
+				frm.ShowDialog();
 
 				this.Hide();
 
-				
+
 				frm.ShowDialog();
 			}
 			catch (Exception ex)
@@ -57,19 +56,8 @@ namespace Cats_Villa
 			}
 
 		}
+		
 
-		private void btnCreate_Click(object sender, EventArgs e)
-		{
-			var frm = new FormCreateUser();
-			frm.Owner = this;
-			frm.ShowDialog();
-		}
-
-		private void btnback_Click(object sender, EventArgs e)
-		{
-			var frm = new FormBackLogin();
-			frm.Owner = this;
-			frm.ShowDialog();
-		}
 	}
 }
+

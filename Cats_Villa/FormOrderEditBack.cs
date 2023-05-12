@@ -53,6 +53,7 @@ namespace Cats_Villa
 			var frm = new FormOrderDelete(Id);
 			frm.Owner = this;
 			frm.ShowDialog();
+			this.DialogResult = DialogResult.OK;
 		}
 	}
 }

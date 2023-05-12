@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
 			this.btnLogin = new System.Windows.Forms.Button();
 			this.btnCreate = new System.Windows.Forms.Button();
@@ -36,6 +37,8 @@
 			this.txtAccount = new System.Windows.Forms.TextBox();
 			this.txtPassword = new System.Windows.Forms.TextBox();
 			this.btnback = new System.Windows.Forms.Button();
+			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// btnLogin
@@ -92,7 +95,6 @@
 			this.txtAccount.Name = "txtAccount";
 			this.txtAccount.Size = new System.Drawing.Size(118, 37);
 			this.txtAccount.TabIndex = 1;
-			this.txtAccount.Text = "test123";
 			// 
 			// txtPassword
 			// 
@@ -102,18 +104,21 @@
 			this.txtPassword.PasswordChar = '*';
 			this.txtPassword.Size = new System.Drawing.Size(118, 37);
 			this.txtPassword.TabIndex = 2;
-			this.txtPassword.Text = "test1234";
 			// 
 			// btnback
 			// 
 			this.btnback.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btnback.Location = new System.Drawing.Point(1, 408);
+			this.btnback.Location = new System.Drawing.Point(-1, 409);
 			this.btnback.Name = "btnback";
 			this.btnback.Size = new System.Drawing.Size(92, 42);
 			this.btnback.TabIndex = 4;
 			this.btnback.Text = "後臺管理系統";
 			this.btnback.UseVisualStyleBackColor = true;
 			this.btnback.Click += new System.EventHandler(this.btnback_Click);
+			// 
+			// errorProvider1
+			// 
+			this.errorProvider1.ContainerControl = this;
 			// 
 			// FormLogin
 			// 
@@ -134,6 +139,7 @@
 			this.MaximumSize = new System.Drawing.Size(816, 489);
 			this.Name = "FormLogin";
 			this.Text = "會員登入";
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -148,5 +154,6 @@
 		private System.Windows.Forms.TextBox txtAccount;
 		private System.Windows.Forms.TextBox txtPassword;
 		private System.Windows.Forms.Button btnback;
+		private System.Windows.Forms.ErrorProvider errorProvider1;
 	}
 }

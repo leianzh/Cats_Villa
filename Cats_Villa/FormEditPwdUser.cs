@@ -59,7 +59,7 @@ namespace Cats_Villa
 				return;
 			}
 			
-			MessageBox.Show("會員密碼更新成功");
+			MessageBox.Show("會員帳號密碼更新成功");
 			this.DialogResult = DialogResult.OK;
 		}
 		private (bool isValid, List<ValidationResult> errors) Validate(EditUserPasswordVM vm)

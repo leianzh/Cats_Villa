@@ -97,7 +97,7 @@ namespace Cats_Villa
 			if (checkInDate > checkOutDate)
 			{
 				MessageBox.Show("入住日期不可以晚於退房日期。", "日期錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				dateTimePicker1.Value = checkInDate;
+				dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
 			}
 
 			dateTimePicker2.MinDate = dateTimePicker1.Value.AddDays(1);
@@ -153,6 +153,8 @@ namespace Cats_Villa
 			comboBox1.Items.AddRange(rooms.ToArray());
 			comboBox1.DisplayMember = "RoomType";
 
+			dateTimePicker1.Value = DateTime.Now;
+
 
 		}
 
@@ -160,10 +162,10 @@ namespace Cats_Villa
 		{
 			IOrderRepository repo = new SqlOrderRepository();
 			OrderService service = new OrderService(repo);
-			var result = MessageBox.Show("你確定要刪除嗎?", "確定嗎????", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			var result = MessageBox.Show("請確定此筆訂單要刪除嗎?", "確定嗎????", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (result == DialogResult.Yes)
 			{
-				var result2 = MessageBox.Show("確定嗎??刪了回不去喔?!", "REALLY??", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+				var result2 = MessageBox.Show("請再次確定此筆訂單要刪除!!刪除將無法復原!", "請三思!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
 				if (result2 == DialogResult.Yes)
 				{
 					try
@@ -175,11 +177,13 @@ namespace Cats_Villa
 						MessageBox.Show("刪除失敗，原因:" + ex.Message);
 						return;
 					}
+					MessageBox.Show("刪除成功");
 
 				}
+				
 			}
 
-			 MessageBox.Show("刪除成功");
+			 
 
 			IGrid owner = this.Owner as IGrid;
 			if (owner == null)

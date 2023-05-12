@@ -6,23 +6,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Cats_Villa.SqlDataLayer.Services
 {
 	public class UserService
 	{
 		private readonly IUserRepository _repo;
-		public UserService(IUserRepository repo)//建構函數傳了ICategoryRepository
-														//所以fom去呼叫它
+
+
+		public UserService(IUserRepository repo)
 		{
 			_repo = repo;
 		}
 		public bool IsVaild(string account, string password)
 		{
-			//precondition checks
-			//account,password 必填
-			if (string.IsNullOrEmpty(account)) { throw new ArgumentNullException(nameof(account), "帳號必填"); }
-			if (string.IsNullOrEmpty(password)) { throw new ArgumentNullException(nameof(password), "密碼必填"); }
+
+
+			
+			if (string.IsNullOrEmpty(account))
+			{
+				MessageBox.Show("帳號必填", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				
+			}
+
+			if (string.IsNullOrEmpty(password))
+			{
+				MessageBox.Show("密碼必填", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
+
+			
 			//取得單一使用者
 			User user = _repo.GetByAccount(account);
 			if (user == null) { return false; }
@@ -41,7 +55,7 @@ namespace Cats_Villa.SqlDataLayer.Services
 		{
 			// 檢查 name是否己存在
 			var data = _repo.Search(dto.UserName, null);
-			if (data != null && data.Count > 0) throw new Exception("名稱已存在");
+			if (data != null && data.Count > 0) throw new Exception("會員姓名已存在");
 
 			// 若名稱是唯一的, 允許新建記錄
 			UserEntity entity = dto.ToEntity();

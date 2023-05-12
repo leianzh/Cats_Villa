@@ -50,8 +50,10 @@
 			this.btnAddUser = new System.Windows.Forms.Button();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -60,7 +62,7 @@
 			this.label1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
 			this.label1.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label1.ForeColor = System.Drawing.Color.DimGray;
-			this.label1.Location = new System.Drawing.Point(149, 82);
+			this.label1.Location = new System.Drawing.Point(17, 30);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(71, 16);
 			this.label1.TabIndex = 0;
@@ -72,7 +74,7 @@
 			this.label2.BackColor = System.Drawing.Color.LightGoldenrodYellow;
 			this.label2.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label2.ForeColor = System.Drawing.Color.DimGray;
-			this.label2.Location = new System.Drawing.Point(372, 83);
+			this.label2.Location = new System.Drawing.Point(240, 31);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(71, 16);
 			this.label2.TabIndex = 1;
@@ -80,19 +82,17 @@
 			// 
 			// txtUserName
 			// 
-			this.txtUserName.Location = new System.Drawing.Point(246, 82);
+			this.txtUserName.Location = new System.Drawing.Point(114, 30);
 			this.txtUserName.Name = "txtUserName";
 			this.txtUserName.Size = new System.Drawing.Size(100, 22);
 			this.txtUserName.TabIndex = 0;
-			this.txtUserName.Text = "理恩";
 			// 
 			// txtCatName
 			// 
-			this.txtCatName.Location = new System.Drawing.Point(480, 84);
+			this.txtCatName.Location = new System.Drawing.Point(348, 32);
 			this.txtCatName.Name = "txtCatName";
 			this.txtCatName.Size = new System.Drawing.Size(100, 22);
 			this.txtCatName.TabIndex = 1;
-			this.txtCatName.Text = "蚵仔";
 			// 
 			// label3
 			// 
@@ -100,7 +100,7 @@
 			this.label3.BackColor = System.Drawing.Color.LightGoldenrodYellow;
 			this.label3.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label3.ForeColor = System.Drawing.Color.DimGray;
-			this.label3.Location = new System.Drawing.Point(372, 128);
+			this.label3.Location = new System.Drawing.Point(240, 76);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(71, 16);
 			this.label3.TabIndex = 4;
@@ -112,7 +112,7 @@
 			this.label4.BackColor = System.Drawing.Color.LightGoldenrodYellow;
 			this.label4.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label4.ForeColor = System.Drawing.Color.DimGray;
-			this.label4.Location = new System.Drawing.Point(372, 174);
+			this.label4.Location = new System.Drawing.Point(240, 122);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(71, 16);
 			this.label4.TabIndex = 5;
@@ -124,7 +124,7 @@
 			this.label5.BackColor = System.Drawing.Color.LightGoldenrodYellow;
 			this.label5.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label5.ForeColor = System.Drawing.Color.DimGray;
-			this.label5.Location = new System.Drawing.Point(372, 222);
+			this.label5.Location = new System.Drawing.Point(240, 170);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(71, 16);
 			this.label5.TabIndex = 6;
@@ -136,7 +136,7 @@
 			this.label6.BackColor = System.Drawing.Color.LightGoldenrodYellow;
 			this.label6.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label6.ForeColor = System.Drawing.Color.DimGray;
-			this.label6.Location = new System.Drawing.Point(149, 143);
+			this.label6.Location = new System.Drawing.Point(17, 91);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(71, 16);
 			this.label6.TabIndex = 7;
@@ -148,7 +148,7 @@
 			this.label7.BackColor = System.Drawing.Color.LightGoldenrodYellow;
 			this.label7.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label7.ForeColor = System.Drawing.Color.DimGray;
-			this.label7.Location = new System.Drawing.Point(621, 84);
+			this.label7.Location = new System.Drawing.Point(489, 32);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(71, 16);
 			this.label7.TabIndex = 8;
@@ -161,7 +161,7 @@
 			this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.label8.Font = new System.Drawing.Font("新細明體-ExtB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label8.ForeColor = System.Drawing.Color.DimGray;
-			this.label8.Location = new System.Drawing.Point(621, 130);
+			this.label8.Location = new System.Drawing.Point(489, 78);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(73, 18);
 			this.label8.TabIndex = 9;
@@ -169,43 +169,38 @@
 			// 
 			// txtCatBreed
 			// 
-			this.txtCatBreed.Location = new System.Drawing.Point(480, 218);
+			this.txtCatBreed.Location = new System.Drawing.Point(348, 166);
 			this.txtCatBreed.Name = "txtCatBreed";
 			this.txtCatBreed.Size = new System.Drawing.Size(100, 22);
 			this.txtCatBreed.TabIndex = 4;
-			this.txtCatBreed.Text = "mix";
 			// 
 			// txtCatGender
 			// 
-			this.txtCatGender.Location = new System.Drawing.Point(480, 171);
+			this.txtCatGender.Location = new System.Drawing.Point(348, 119);
 			this.txtCatGender.Name = "txtCatGender";
 			this.txtCatGender.Size = new System.Drawing.Size(100, 22);
 			this.txtCatGender.TabIndex = 3;
-			this.txtCatGender.Text = "女森";
 			// 
 			// txtPassword
 			// 
-			this.txtPassword.Location = new System.Drawing.Point(718, 130);
+			this.txtPassword.Location = new System.Drawing.Point(586, 78);
 			this.txtPassword.Name = "txtPassword";
 			this.txtPassword.Size = new System.Drawing.Size(100, 22);
 			this.txtPassword.TabIndex = 7;
-			this.txtPassword.Text = "hhhk8885";
 			// 
 			// txtAccount
 			// 
-			this.txtAccount.Location = new System.Drawing.Point(718, 84);
+			this.txtAccount.Location = new System.Drawing.Point(586, 32);
 			this.txtAccount.Name = "txtAccount";
 			this.txtAccount.Size = new System.Drawing.Size(100, 22);
 			this.txtAccount.TabIndex = 6;
-			this.txtAccount.Text = "leian123";
 			// 
 			// txtUserPhone
 			// 
-			this.txtUserPhone.Location = new System.Drawing.Point(246, 143);
+			this.txtUserPhone.Location = new System.Drawing.Point(114, 91);
 			this.txtUserPhone.Name = "txtUserPhone";
 			this.txtUserPhone.Size = new System.Drawing.Size(100, 22);
 			this.txtUserPhone.TabIndex = 5;
-			this.txtUserPhone.Text = "0988699060";
 			// 
 			// menuStrip1
 			// 
@@ -247,11 +242,37 @@
 			// 
 			// dateTimePicker1
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(480, 124);
+			this.dateTimePicker1.Location = new System.Drawing.Point(348, 72);
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(115, 22);
 			this.dateTimePicker1.TabIndex = 2;
 			this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.label1);
+			this.groupBox1.Controls.Add(this.dateTimePicker1);
+			this.groupBox1.Controls.Add(this.txtCatGender);
+			this.groupBox1.Controls.Add(this.label4);
+			this.groupBox1.Controls.Add(this.label2);
+			this.groupBox1.Controls.Add(this.label5);
+			this.groupBox1.Controls.Add(this.txtPassword);
+			this.groupBox1.Controls.Add(this.txtUserName);
+			this.groupBox1.Controls.Add(this.txtCatBreed);
+			this.groupBox1.Controls.Add(this.label3);
+			this.groupBox1.Controls.Add(this.txtUserPhone);
+			this.groupBox1.Controls.Add(this.label6);
+			this.groupBox1.Controls.Add(this.label7);
+			this.groupBox1.Controls.Add(this.txtAccount);
+			this.groupBox1.Controls.Add(this.txtCatName);
+			this.groupBox1.Controls.Add(this.label8);
+			this.groupBox1.ForeColor = System.Drawing.Color.White;
+			this.groupBox1.Location = new System.Drawing.Point(130, 72);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(714, 202);
+			this.groupBox1.TabIndex = 17;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "註冊成為新會員";
 			// 
 			// FormCreateUser
 			// 
@@ -261,23 +282,8 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.ClientSize = new System.Drawing.Size(856, 467);
-			this.Controls.Add(this.dateTimePicker1);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.btnAddUser);
-			this.Controls.Add(this.txtUserPhone);
-			this.Controls.Add(this.txtAccount);
-			this.Controls.Add(this.txtPassword);
-			this.Controls.Add(this.txtCatGender);
-			this.Controls.Add(this.txtCatBreed);
-			this.Controls.Add(this.label8);
-			this.Controls.Add(this.label7);
-			this.Controls.Add(this.label6);
-			this.Controls.Add(this.label5);
-			this.Controls.Add(this.label4);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this.txtCatName);
-			this.Controls.Add(this.txtUserName);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.label1);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.MaximizeBox = false;
@@ -289,6 +295,8 @@
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -316,5 +324,6 @@
 		private System.Windows.Forms.Button btnAddUser;
 		private System.Windows.Forms.ErrorProvider errorProvider1;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.GroupBox groupBox1;
 	}
 }

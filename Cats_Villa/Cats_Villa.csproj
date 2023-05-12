@@ -53,6 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBackLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBackLogin.Designer.cs">
+      <DependentUpon>FormBackLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreateUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     <Compile Include="ViewModels\UserVM.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBackLogin.resx">
+      <DependentUpon>FormBackLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreateUser.resx">
       <DependentUpon>FormCreateUser.cs</DependentUpon>

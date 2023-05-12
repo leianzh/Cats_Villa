@@ -35,6 +35,7 @@ namespace Cats_Villa
 			string phone = txtUserPhone.Text;
 			string account = txtAccount.Text;
 			string password = txtPassword.Text;
+			
 
 			CreateUserVM vm = new CreateUserVM()
 			{
@@ -61,12 +62,19 @@ namespace Cats_Villa
 			IUserRepository repo = new SqlUserRepository();
 			UserService service = new UserService(repo);
 
-			service.Create(dto);
-			var frm = new FormLogin();
-			frm.Owner = this;
-			this.Close();
+			try
+			{
+				service.Create(dto);
+				var frm = new FormLogin();
+				frm.Owner = this;
+				this.Close();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 
-			
+
 
 
 		}
